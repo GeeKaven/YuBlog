@@ -1,6 +1,0 @@
-[submodule "themes/ananke"]
-	path = themes/ananke
-	url = https://github.com/budparr/gohugo-theme-ananke.git
-[submodule "geekaven.github.io"]
-	path = geekaven.github.io
-	url = git@github.com:GeeKaven/geekaven.github.io.git
