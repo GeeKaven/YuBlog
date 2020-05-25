@@ -104,7 +104,7 @@ eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
    ```
 7. 重复3，4步，WSL2将可以正常访问网络  
    
-* [WSL issues#4285](https://github.com/microsoft/WSL/issues/4285)
+* [WSL issues#4285](https://github.com/microsoft/WSL/issues/4285#issuecomment-522201021)
 
 第二点，由于跨OS文件系统性能下降，我们最好确保将项目存储在Linux文件系统中，以获得更快的文件访问速度。
 # 总结  
