@@ -4,7 +4,7 @@ date: 2020-05-25 19:22:50
 tags:
 ---
 WSL2已经作为Windows 10 version 2004中的标准组件的一部分，虽然还未大范围推送，我也迫不及待的从某渠道下载iso文件进行了第一时间的更新。  
-
+<!-- more -->
 它的实际安装步骤也很简单，可以参考如下步骤就可完成：
 * [适用于 Linux 的 Windows 子系统安装指南 ](https://docs.microsoft.com/zh-cn/windows/wsl/install-win10) 
 
