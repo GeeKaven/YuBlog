@@ -77,7 +77,7 @@ eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         TX packets 829  bytes 65587 (65.5 KB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ```
-最后成功访问（也许并不能  
+最后成功访问
 
 ![wsl-nginx](https://cdn.jsdelivr.net/gh/GeeKaven/BlogAssets@master/img/wsl-nginx.png)
 # 与WSL的区别
@@ -88,7 +88,8 @@ eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 * 网络访问
 * 更快的磁盘访问与更慢的跨OS文件系统性能  
   
-第一点，默认情况下WSL2是无法通过宿主机访问网络的，但也有解决方案。
+## 网络访问
+### `apt-get update`时连接超时
 1. 创建文件 `/etc/wsl.conf`
 2. 将下列填入文件中，用来确保DNS修改不会被删除
    ```
@@ -105,7 +106,32 @@ eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 7. 重复3，4步，WSL2将可以正常访问网络  
    
 * [WSL issues#4285](https://github.com/microsoft/WSL/issues/4285#issuecomment-522201021)
+### 连接Windows代理
+需要注意的点
+* Windows代理需要允许LAN连接
+* 防火墙需要允许代理软件连接 （卡了很久，最后发现Windows防火墙拦掉了）
+* WSL2是IP是动态变化的，上面已经将`/etc/resolv.conf`动态生成关闭，但是IP还是会变的
+因此我们需要在WSL中获取IP然后设置代理，下面是我的代理脚本，可导入至`.zshrc`或其他配置文件中
+```
+export hostip=$(ip route | grep default | awk '{print $3}') # 获取ip
+proxy() {
+    # 开启代理
+    export ALL_PROXY="socks5://${hostip}:7891"
+    export all_proxy="socks5://${hostip}:7891"
+    echo "proxy ${hostip}"
+}
 
-第二点，由于跨OS文件系统性能下降，我们最好确保将项目存储在Linux文件系统中，以获得更快的文件访问速度。
+unproxy() {
+    # 关闭代理
+    unset ALL_PROXY
+    unset all_proxy
+    echo "unproxy"
+}
+```
+之后就可以使用`proxy`开启代理，`unproxy`关闭代理了
+
+## 磁盘访问
+由于跨OS文件系统性能下降，我们最好确保将项目存储在Linux文件系统中，以获得更快的文件访问速度。
+
 # 总结  
 WSL的这次更新可以说是改动非常大的了，然后在加上VSCode强大的远程开发能力，能在Windows中获得Linux中的开发体验，我想感觉应该是很不错的。可能WSL2还有很多坑没有遇见，我想对于Web开发应该是足够了。（配合Windows Terminal体验更佳）
