@@ -10,20 +10,19 @@ module.exports = {
     social: {
       twitter: `geekaven`,
     },
+    cdn: [
+      `https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css`,
+      `https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css`,
+      `https://fonts.googleapis.com/css?family=Droid+Serif:400,700`,
+      `https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css`
+    ]
   },
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/blog`,
-        name: `blog`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/content/assets`,
-        name: `assets`,
+        path: `${__dirname}/content`,
+        name: `content`,
       },
     },
     {
@@ -66,12 +65,13 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `static/gatsby-icon.png`,
       },
     },
     `gatsby-plugin-react-helmet`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+    `gatsby-plugin-postcss`,
   ],
 }

@@ -21,6 +21,7 @@ const SEO = ({ description, lang, meta, title }) => {
             social {
               twitter
             }
+            cdn
           }
         }
       }
@@ -28,6 +29,7 @@ const SEO = ({ description, lang, meta, title }) => {
   )
 
   const metaDescription = description || site.siteMetadata.description
+  const cdn = site.siteMetadata.cdn
   const defaultTitle = site.siteMetadata?.title
 
   return (
