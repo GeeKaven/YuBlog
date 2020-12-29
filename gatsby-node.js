@@ -6,14 +6,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
   // Define a template for blog post
-  // const blogPost = path.resolve(`./src/templates/blog-post.js`)
+  const blogPostTemplate = path.resolve(`./src/templates/blog-post.js`)
   const homeTemplate = path.resolve(`./src/templates/home.js`)
 
   // Get all markdown blog posts sorted by date
   const result = await graphql(
     `
       {
-        allMarkdownRemark(
+        postRemark: allMarkdownRemark(
           sort: { order: DESC, fields: [frontmatter___date] }
           filter: { frontmatter: { layout: { ne: "page" } } }
         ) {
@@ -40,8 +40,26 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return
   }
 
-  const posts = result.data.allMarkdownRemark.edges
-  console.log(posts)
+  const posts = result.data.postRemark.edges
+
+  // create blog post page
+  if (posts.length > 0) {
+    posts.forEach((post, index) => {
+      const previous = index === 0 ? null : posts[index - 1].node
+      const next = index === posts.length - 1 ? null : posts[index + 1].node
+
+      createPage({
+        path: post.node.fields.slug,
+        component: blogPostTemplate,
+        context: {
+          slug: post.node.fields.slug,
+          dateFormat: 'YYYY-MM-DD',
+          previous,
+          next,
+        },
+      })
+    })
+  }
 
   // Create blog index page for post list
   const postsPerPage = 8
@@ -59,26 +77,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       },
     })
   })
-  // Create blog posts pages
-  // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
-  // `context` is available in the template as a prop and as a variable in GraphQL
 
-  // if (posts.length > 0) {
-  //   posts.forEach((post, index) => {
-  //     const previousPostId = index === 0 ? null : posts[index - 1].id
-  //     const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
-
-  //     createPage({
-  //       path: post.fields.slug,
-  //       component: blogPost,
-  //       context: {
-  //         id: post.id,
-  //         previousPostId,
-  //         nextPostId,
-  //       },
-  //     })
-  //   })
-  // }
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
