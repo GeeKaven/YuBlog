@@ -6,4 +6,4 @@ import './src/global.css'
 import './src/style.css'
 
 // Highlighting for code blocks
-import 'prismjs/themes/prism-OKAIDIA.css'
+import 'prismjs/themes/prism-okaidia.css'
