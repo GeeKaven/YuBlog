@@ -1,21 +1,28 @@
 module.exports = {
   siteMetadata: {
     title: `GeeKaven's`,
-    author: {
-      name: `GeeKaven`,
-      summary: `Code for fun, Code for ACG`,
-    },
+    image: `/gatsby-icon.png`,
     description: `A starter blog demonstrating what Gatsby can do.`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
     social: {
-      twitter: `geekaven`,
+      twitter: 'geekaven',
+      github: 'geekaven',
+      email: '',
     },
+    sidebarMenu: [
+      { url: "/archive/", label: "归档" },
+      { url: "/tags/", label: "标签" },
+      { url: "/about", label: "About" },
+    ],
+    footerHTML: `© 2021 <a href="https://github.com/geekaven">GeeKaven</a> All rights reserved.`,
+    dateFormat: `YYYY-MM-DD`,
+    language: `zh`,
     cdn: [
       `https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css`,
       `https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css`,
       `https://fonts.googleapis.com/css?family=Droid+Serif:400,700`,
-      `https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css`
-    ]
+      `https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css`,
+    ],
   },
   plugins: [
     {

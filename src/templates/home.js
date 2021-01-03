@@ -2,14 +2,19 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Main from '../components/main'
 import PostList from '../components/post-list'
+import SideBar from '../components/sidebar'
+import Layout from '../components/layout'
 
 const HomeTemplate = ({ data, pageContext }) => {
   const posts = data.allMarkdownRemark.edges
 
   return (
-    <Main>
-      <PostList posts={posts}></PostList>
-    </Main>
+    <Layout>
+      <Main>
+        <SideBar isPostPage={false} />
+        <PostList posts={posts} />
+      </Main>
+    </Layout>
   )
 }
 

@@ -400,9 +400,14 @@
 body {
   font: 400 18px/1.42 'Droid Serif', 'PingFang SC', 'Hiragino Sans GB',
     'Droid Sans Fallback', 'Microsoft YaHei', sans-serif;
+    overflow-y: overlay;
 }
 .main {
   max-width: 1200px;
+  margin: 0 auto;
+}
+.layout {
+  max-width: 1600px;
   margin: 0 auto;
 }
 .post-item .feature-image-wrapper {

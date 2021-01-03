@@ -2,15 +2,19 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import Main from '../components/main'
 import Post from '../components/post'
-
+import Layout from '../components/layout'
+import SideBar from '../components/sidebar'
 
 const BlogPostTemplate = ({ data, pageContext }) => {
   const post = data.markdownRemark
 
   return (
-    <Main>
-      <Post post={post}></Post>
-    </Main>
+    <Layout>
+      <Main>
+        <SideBar isPostPage={true} />
+        <Post post={post} />
+      </Main>
+    </Layout>
   )
 }
 
