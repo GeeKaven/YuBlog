@@ -10,7 +10,7 @@ module.exports = {
       email: '',
     },
     sidebarMenu: [
-      { url: "/archive/", label: "归档" },
+      { url: "/archives/", label: "归档" },
       { url: "/tags/", label: "标签" },
       { url: "/about", label: "About" },
     ],

@@ -108,6 +108,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       },
     })
   })
+
+  createPage({
+    path: `/archives`,
+    component: path.resolve(`./src/templates/archives.js`),
+    context: {
+      dateFormat: 'YYYY-MM-DD',
+    },
+  })
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
