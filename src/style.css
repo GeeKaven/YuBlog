@@ -479,44 +479,16 @@ body {
   color: #1a202c;
 }
 .menu-container {
-  width: 320px;
-  position: fixed;
-  top: 0;
-  left: -320px;
-  bottom: 0;
   display: flex;
   align-items: center;
-  background: #fff;
-  padding: 24px;
-  transition: all 0.35s ease-in-out;
-  z-index: 1000;
+  flex-direction: column;
   justify-content: center;
-  overflow-y: scroll;
-}
-.menu-container .close-menu-btn {
-  position: absolute;
-  right: 24px;
-  top: 24px;
-}
-.menu-container .site-footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 24px;
-  font-size: 12px;
-  text-align: center;
-  background: #fff;
-}
-.menu-container.open {
-  left: 0px;
-  box-shadow: 5px 0px 36px rgba(0, 0, 0, 0.1);
 }
 .menu-container .menu {
   display: block;
   padding: 8px 16px;
   position: relative;
-  margin: 24px 0;
+  margin: 4px 0;
   color: #718096;
 }
 .menu-container .menu:hover {
@@ -548,22 +520,6 @@ body {
 .menu-container .menu:hover:after {
   transform-origin: center right;
   transform: scaleX(1);
-}
-.mask {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(255, 255, 255, 0.65);
-  transition: all 0.35s;
-  opacity: 0;
-  z-index: -1;
-}
-.mask.open {
-  display: block;
-  opacity: 1;
-  z-index: 100;
 }
 .pagination-container {
   display: flex;

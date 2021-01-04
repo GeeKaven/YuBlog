@@ -8,6 +8,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // Define a template for blog post
   const blogPostTemplate = path.resolve(`./src/templates/blog-post.js`)
   const homeTemplate = path.resolve(`./src/templates/home.js`)
+  const pageTemplate = path.resolve(`./src/templates/page.js`)
 
   // Get all markdown blog posts sorted by date
   const result = await graphql(
@@ -16,6 +17,21 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         postRemark: allMarkdownRemark(
           sort: { order: DESC, fields: [frontmatter___date] }
           filter: { frontmatter: { layout: { ne: "page" } } }
+        ) {
+          edges {
+            node {
+              fields {
+                slug
+              }
+              frontmatter {
+                title
+              }
+            }
+          }
+        }
+        pagesRemark: allMarkdownRemark(
+          filter: { frontmatter: { layout: { eq: "page" } } }
+          limit: 1000
         ) {
           edges {
             node {
@@ -61,6 +77,21 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
   }
 
+  // create page
+  const pages = result.data.pagesRemark.edges
+  if (pages.length > 0) {
+    pages.forEach(page => {
+      console.log(page.node.fields.slug)
+      createPage({
+        path: page.node.fields.slug,
+        component: pageTemplate,
+        context: {
+          slug: page.node.fields.slug,
+        },
+      })
+    })
+  }
+
   // Create blog index page for post list
   const postsPerPage = 8
   const numPages = Math.ceil(posts.length / postsPerPage)
@@ -73,11 +104,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         totalPage: numPages,
         limit: postsPerPage,
         skip: i * postsPerPage,
-        dateFormat: 'YYYY-MM-DD'
+        dateFormat: 'YYYY-MM-DD',
       },
     })
   })
-
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
