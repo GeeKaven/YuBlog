@@ -1,18 +1,18 @@
 module.exports = {
   siteMetadata: {
-    title: `GeeKaven's`,
-    image: `/gatsby-icon.png`,
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
+    title: `GeeKaven`,
+    image: `/avater.png`,
+    description: `A web developer, Love Code, Love ACG.`,
+    siteUrl: `https://tawawa.moe/`,
     social: {
       twitter: 'geekaven',
       github: 'geekaven',
-      email: '',
+      mail: 'i@tawawa.moe',
     },
     sidebarMenu: [
-      { url: "/archives/", label: "归档" },
-      { url: "/tags/", label: "标签" },
-      { url: "/about", label: "About" },
+      { url: '/archives/', label: '归档' },
+      // { url: "/tags/", label: "标签" },
+      { url: '/about', label: '关于' },
     ],
     footerHTML: `© 2021 <a href="https://github.com/geekaven">GeeKaven</a> All rights reserved.`,
     dateFormat: `YYYY-MM-DD`,

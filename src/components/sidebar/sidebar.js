@@ -12,9 +12,9 @@ const SideBar = ({ isPostPage, toc }) => {
           siteMetadata {
             title
             social {
-              email
               github
               twitter
+              mail
             }
             sidebarMenu {
               label

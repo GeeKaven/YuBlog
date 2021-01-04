@@ -1,6 +1,6 @@
 export const getLink = (siteName, username) => {
   switch (siteName) {
-    case "email":
+    case "mail":
       return `mailto:${username}`
     case "github":
       return `https://github.com/${username}`
