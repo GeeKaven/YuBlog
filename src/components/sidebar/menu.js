@@ -10,6 +10,7 @@ const Menu = ({ menu }) => {
           <Link
             to={item.url}
             className="menu"
+            activeClassName="menu-active"
             style={{animationDelay: `${index * 0.2}s`}}
             key={item.url}
           >

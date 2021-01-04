@@ -400,7 +400,7 @@
 body {
   font: 400 18px/1.42 'Droid Serif', 'PingFang SC', 'Hiragino Sans GB',
     'Droid Sans Fallback', 'Microsoft YaHei', sans-serif;
-    overflow-y: overlay;
+  overflow-y: overlay;
 }
 .main {
   max-width: 1200px;
@@ -520,6 +520,25 @@ body {
 .menu-container .menu:hover:after {
   transform-origin: center right;
   transform: scaleX(1);
+}
+.menu-container .menu-active {
+  color: #1a202c;
+}
+.menu-container .menu-active::before,
+.menu-container .menu-active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #1a202c;
+  transform: scaleX(1);
+}
+.menu-container .menu-active::before {
+  top: 0;
+}
+.menu-container .menu-active::after{
+  bottom: 0;
 }
 .pagination-container {
   display: flex;
