@@ -60,4 +60,8 @@ const SideBar = ({ isPostPage, toc }) => {
   )
 }
 
+SideBar.defaultProps = {
+  isPostPage: false,
+}
+
 export default SideBar

@@ -2,7 +2,6 @@ import { Link } from 'gatsby'
 import React from 'react'
 
 const Menu = ({ menu }) => {
-  console.log(menu)
   return (
     <div className="menu-container">
       {menu &&

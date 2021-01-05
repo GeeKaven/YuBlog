@@ -11,7 +11,7 @@ const PageTemplate = ({ data }) => {
   return (
     <Layout>
       <Main>
-        <SideBar isPostPage={false} />
+        <SideBar />
         <Page page={page}>
           <div
             dangerouslySetInnerHTML={{ __html: page.frontmatter.html }}

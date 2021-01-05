@@ -4,15 +4,25 @@ import Main from '../components/main'
 import PostList from '../components/post-list'
 import SideBar from '../components/sidebar'
 import Layout from '../components/layout'
+import Pagination from '../components/pagination'
 
 const HomeTemplate = ({ data, pageContext }) => {
   const posts = data.allMarkdownRemark.edges
+  const { currentPage, totalPage } = pageContext
 
   return (
     <Layout>
       <Main>
-        <SideBar isPostPage={false} />
-        <PostList posts={posts} />
+        <SideBar />
+        <PostList posts={posts}>
+          <Pagination
+            prevLink={
+              currentPage !== 1 &&
+              (currentPage === 2 ? '/' : `/page/${currentPage - 1}`)
+            }
+            nextLink={currentPage < totalPage && `/page/${currentPage + 1}`}
+          />
+        </PostList>
       </Main>
     </Layout>
   )

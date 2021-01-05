@@ -1,12 +1,10 @@
 import { Link } from 'gatsby'
 import React from 'react'
 
-const PageList = ({ posts }) => {
+const PageList = ({ posts, children }) => {
   return (
     <div className="content-wrapper py-32 lg:p-8 lg:w-3/4">
-      <h2 className="latest-article text-lg text-gray-700 mb-8">
-        最新文章
-      </h2>
+      <h2 className="latest-article text-lg text-gray-700 mb-8">最新文章</h2>
       {posts.map(({ node }, index) => (
         <section
           key={node.fields.slug}
@@ -39,6 +37,7 @@ const PageList = ({ posts }) => {
           </div>
         </section>
       ))}
+      {children}
     </div>
   )
 }

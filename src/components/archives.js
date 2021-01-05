@@ -2,11 +2,9 @@ import { Link } from 'gatsby'
 import React from 'react'
 
 const Archives = ({ posts }) => {
-  console.log(posts)
 
   let yearsMap = new Map()
   posts.forEach(({ node }) => {
-    console.log(node)
     const year = node.frontmatter.date.substring(0, 4)
     if (!yearsMap.has(year)) {
       yearsMap.set(year, [])

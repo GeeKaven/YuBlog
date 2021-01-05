@@ -11,7 +11,7 @@ const ArchivesTemplate = ({ data }) => {
   return (
     <Layout>
       <Main>
-        <SideBar isPostPage={false} />
+        <SideBar />
         <Archives posts={posts}></Archives>
       </Main>
     </Layout>
