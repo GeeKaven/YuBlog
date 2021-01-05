@@ -14,7 +14,7 @@ module.exports = {
       // { url: "/tags/", label: "标签" },
       { url: '/about', label: '关于' },
     ],
-    footerHTML: `© 2021 <a href="https://github.com/geekaven">GeeKaven</a> All rights reserved.`,
+    footerHTML: `Copyright © 2021 <a href="https://github.com/geekaven">GeeKaven</a> 的博客<br>♥ Powered by <a href="https://www.gatsbyjs.com/">Gatsbyjs</a> ♥ Theme Walker`,
     dateFormat: `YYYY-MM-DD`,
     language: `zh`,
     cdn: [

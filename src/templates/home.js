@@ -5,6 +5,7 @@ import PostList from '../components/post-list'
 import SideBar from '../components/sidebar'
 import Layout from '../components/layout'
 import Pagination from '../components/pagination'
+import Footer from '../components/footer'
 
 const HomeTemplate = ({ data, pageContext }) => {
   const posts = data.allMarkdownRemark.edges
@@ -22,6 +23,7 @@ const HomeTemplate = ({ data, pageContext }) => {
             }
             nextLink={currentPage < totalPage && `/page/${currentPage + 1}`}
           />
+          <Footer />
         </PostList>
       </Main>
     </Layout>
