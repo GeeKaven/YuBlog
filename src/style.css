@@ -452,7 +452,7 @@ body {
 .archives-container .post-title:hover:after {
   width: 100%;
 }
-.toc-container .markdownIt-TOC {
+.toc-container {
   position: -webkit-sticky;
   position: sticky;
   top: 32px;
@@ -631,4 +631,8 @@ body {
 
 .footer .copyright {
   font-size: 14px;
+}
+
+.anchor.before {
+  border: none;
 }

@@ -8,11 +8,12 @@ import Pagination from '../components/pagination'
 
 const BlogPostTemplate = ({ data, pageContext }) => {
   const post = data.markdownRemark
+  console.log(post)
   const { previous, next } = pageContext
   return (
     <Layout>
       <Main>
-        <SideBar isPostPage={true} />
+        <SideBar isPostPage={true} toc={post.tableOfContents} />
         <Post post={post}>
           <Pagination
             isPost={true}
@@ -31,9 +32,11 @@ export const query = graphql`
   query PostBySlug($slug: String!, $dateFormat: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
+      excerpt(pruneLength: 120)
       fields {
         slug
       }
+      tableOfContents(maxDepth: 3)
       frontmatter {
         date(formatString: $dateFormat)
         description

@@ -10,9 +10,9 @@ WSL2 已经作为 Windows 10 version 2004 中的标准组件的一部分，虽�
 
 - [适用于 Linux 的 Windows 子系统安装指南 ](https://docs.microsoft.com/zh-cn/windows/wsl/install-win10)
 
-# 开始安装
+## 开始安装
 
-# 启动 WSL 和 Virtual Machine Platform
+### 启动 WSL 和 Virtual Machine Platform
 
 使用管理者权限启动 PowerShell，并运行以下命令
 
@@ -46,7 +46,7 @@ PS C:\Users\xxx> wsl -l -v
 * Ubuntu                 Stopped         2
 ```
 
-# VSCode 远程开发
+## VSCode 远程开发
 
 我通常将开发环境设置在 WSL，在 Windows 中用 VSCode 进行远程连接，体验像本地一样的开发。
 
@@ -61,7 +61,7 @@ PS C:\Users\xxx> wsl -l -v
 
 - [Developing inside a Container](https://code.visualstudio.com/docs/remote/containers)
 
-# 与 Docker Desktop 整合
+## 与 Docker Desktop 整合
 
 我想以前在 WSL 中使用 docker 是比较复杂的，现在 Docker Desktop 提供了一种方法，仅在 Windows 中打开`Use the WSL 2 based engine`即可。
 
@@ -75,7 +75,7 @@ PS C:\Users\xxx> wsl -l -v
 
 - [Docker Desktop WSL 2 backend](https://docs.docker.com/docker-for-windows/wsl/)
 
-## 启动 Nginx
+### 启动 Nginx
 
 下面简单的启动以下 Nginx
 
@@ -101,7 +101,7 @@ eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 
 ![wsl-nginx](https://cdn.jsdelivr.net/gh/GeeKaven/BlogAssets@master/img/wsl-nginx.png)
 
-# 与 WSL 的区别
+## 与 WSL 的区别
 
 下面列出了一些 WSL1 与 WSL2 的区别
 
@@ -112,9 +112,9 @@ eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 - 网络访问
 - 更快的磁盘访问与更慢的跨 OS 文件系统性能
 
-## 网络访问
+### 网络访问
 
-### `apt-get update`时连接超时
+`apt-get update`时连接超时
 
 1. 创建文件 `/etc/wsl.conf`
 
@@ -169,10 +169,10 @@ unproxy() {
 
 之后就可以使用`proxy`开启代理，`unproxy`关闭代理了
 
-## 磁盘访问
+### 磁盘访问
 
 由于跨 OS 文件系统性能下降，我们最好确保将项目存储在 Linux 文件系统中，以获得更快的文件访问速度。
 
-# 总结
+## 总结
 
 WSL 的这次更新可以说是改动非常大的了，然后在加上 VSCode 强大的远程开发能力，能在 Windows 中获得 Linux 中的开发体验，我想感觉应该是很不错的。可能 WSL2 还有很多坑没有遇见，我想对于 Web 开发应该是足够了。（配合 Windows Terminal 体验更佳）

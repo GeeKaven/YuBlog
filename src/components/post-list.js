@@ -29,7 +29,7 @@ const PageList = ({ posts, children }) => {
               </h2>
             </Link>
             <div className="post-abstract text-gray-700 font-light my-4">
-              {node.frontmatter.description}
+              {node.frontmatter.description || node.excerpt}
             </div>
             <div className="text-gray-400 text-sm font-light">
               {node.frontmatter.date}
