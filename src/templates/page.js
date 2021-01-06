@@ -9,7 +9,7 @@ const PageTemplate = ({ data }) => {
   const page = data.markdownRemark
 
   return (
-    <Layout>
+    <Layout title={page.frontmatter.title}>
       <Main>
         <SideBar />
         <Page page={page}>

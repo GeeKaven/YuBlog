@@ -8,10 +8,10 @@ import Pagination from '../components/pagination'
 
 const BlogPostTemplate = ({ data, pageContext }) => {
   const post = data.markdownRemark
-  console.log(post)
+
   const { previous, next } = pageContext
   return (
-    <Layout>
+    <Layout title={post.frontmatter.title}>
       <Main>
         <SideBar isPostPage={true} toc={post.tableOfContents} />
         <Post post={post}>

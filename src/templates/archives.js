@@ -9,7 +9,7 @@ const ArchivesTemplate = ({ data }) => {
   const posts = data.allMarkdownRemark.edges
 
   return (
-    <Layout>
+    <Layout title="Archive">
       <Main>
         <SideBar />
         <Archives posts={posts}></Archives>

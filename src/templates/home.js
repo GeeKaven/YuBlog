@@ -12,7 +12,7 @@ const HomeTemplate = ({ data, pageContext }) => {
   const { currentPage, totalPage } = pageContext
 
   return (
-    <Layout>
+    <Layout title="Posts">
       <Main>
         <SideBar />
         <PostList posts={posts}>
