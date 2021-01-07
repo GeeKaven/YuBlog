@@ -21,6 +21,7 @@ const SEO = ({ description, lang, meta, title, socialImage }) => {
               twitter
             }
             cdn
+            language
           }
         }
       }

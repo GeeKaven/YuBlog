@@ -38,7 +38,7 @@ const SideBar = ({ isPostPage, toc }) => {
               <img
                 className="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-12 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12"
                 src={site.siteMetadata.image}
-                alt=""
+                alt="avater"
               />
             </Link>
             <h1
