@@ -36,13 +36,13 @@ const SideBar = ({ isPostPage, toc }) => {
           <div className="flex lg:block p-4 lg:px-0 items-center fixed lg:static lg:block top-0 right-0 left-0 bg-white z-50">
             <Link to="/">
               <img
-                className="animated fadeInLeft avatar rounded-lg mx-4 lg:mt-12 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12"
+                className="animate__animated animate__fadeInLeft avatar rounded-lg mx-4 lg:mt-12 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12"
                 src={site.siteMetadata.image}
                 alt="avater"
               />
             </Link>
             <h1
-              className="animated fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl"
+              className="animate__animated animate__fadeInLeft lg:text-4xl font-extrabold lg:mt-8 mt-0 text-xl"
               style={{ animationDelay: `0.2s` }}
             >
               {site.siteMetadata.title}

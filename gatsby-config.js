@@ -21,7 +21,7 @@ module.exports = {
       // `https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css`,
       `https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css`,
       `https://fonts.googleapis.com/css?family=Droid+Serif:400,700`,
-      `https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css`,
+      `https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css`,
     ],
   },
   plugins: [
@@ -81,5 +81,6 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
     `gatsby-plugin-postcss`,
+    `gatsby-plugin-webpack-bundle-analyser-v2`
   ],
 }

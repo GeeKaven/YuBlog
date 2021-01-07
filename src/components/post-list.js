@@ -8,7 +8,7 @@ const PageList = ({ posts, children }) => {
       {posts.map(({ node }, index) => (
         <section
           key={node.fields.slug}
-          className="post-item md:flex pb-12 animated fadeIn"
+          className="post-item md:flex pb-12 animate__animated animate__fadeIn"
           style={{ animationDelay: `${index * 0.2}s` }}
         >
           {node.frontmatter.image && (

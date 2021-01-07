@@ -3,12 +3,12 @@ import { getLink } from './utils'
 
 const SocialLink = ({ social, description }) => {
   return (
-    <div className="animated fadeInLeft" style={{ animationDelay: `0.4s` }}>
+    <div className="animate__animated animate__fadeInLeft" style={{ animationDelay: `0.4s` }}>
       <p className="my-4 text-gray-600 font-light hidden lg:block">
         {description}
       </p>
       <div
-        className="animated fadeInLeft social-container hidden lg:block"
+        className="animate__animated animate__fadeInLeft social-container hidden lg:block"
         style={{ animationDelay: `0.6s` }}
       >
         {Object.entries(social).map(entry => {

@@ -18,18 +18,18 @@ const Archives = ({ posts }) => {
       <div className="archives-container">
         {Array.from(yearsMap).map(([year, nodes]) => (
           <React.Fragment key={year}>
-            <h2 className="text-gray-600 py-4 animated fadeIn">
+            <h2 className="text-gray-600 py-4 animate__animated animate__fadeIn">
               {year}
             </h2>
             {nodes.map(node => (
               <React.Fragment key={node.fields.slug}>
                 <Link to={node.fields.slug}>
-                  <h2 className="inline-block font-bold text-lg post-title animated fadeIn">
+                  <h2 className="inline-block font-bold text-lg post-title animate__animated animate__fadeIn">
                     {node.frontmatter.title}
                   </h2>
                 </Link>
                 <div
-                  className="text-sm font-light mt-3 mb-6 text-gray-400 animated fadeInDown"
+                  className="text-sm font-light mt-3 mb-6 text-gray-400 animate__animated animate__fadeInDown"
                   style={{ animationDelay: `0.4s` }}
                 >
                   {node.frontmatter.date}

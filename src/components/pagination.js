@@ -25,7 +25,7 @@ const Pagination = ({ isPost, prevText, prevLink, nextText, nextLink }) => {
   }
 
   return (
-    <div className="pagination-container animated fadeIn">
+    <div className="pagination-container animate__animated animate__fadeIn">
       {prevLink && (
         <Link to={prevLink} className="page-btn">
           <i className="ri-arrow-left-line"></i>
