@@ -4,7 +4,7 @@ date: 2020-05-01 12:53:42
 tags:
   - 'blog'
 description: ''
-image: 'https://images.unsplash.com/photo-1533922239335-e5ad4f9728f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80'
+image: 'https://cdn.jsdelivr.net/gh/GeeKaven/BlogAssets@master/img/hello-tawawa.jpg'
 ---
 
 说实话，我也不知道这是第几个 blog 了，

@@ -18,6 +18,7 @@ const SocialLink = ({ social, description }) => {
               key={sitename}
               href={getLink(sitename, username)}
               target="_blank"
+              rel="noreferrer"
               className="mr-4 text-xl text-gray-400 font-light hover:text-gray-900"
             >
               <i className={`ri-${sitename}-line`}></i>

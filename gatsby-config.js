@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `GeeKaven`,
-    image: `/avater.png`,
+    image: `https://cdn.jsdelivr.net/gh/GeeKaven/BlogAssets@master/img/avater1.png`,
     description: `A web developer, Love Code, Love ACG.`,
     siteUrl: `https://tawawa.moe/`,
     social: {
@@ -14,11 +14,11 @@ module.exports = {
       // { url: "/tags/", label: "标签" },
       { url: '/about', label: '关于' },
     ],
-    footerHTML: `Copyright © 2021 <a href="https://github.com/geekaven">GeeKaven</a> 的博客<br>♥ Powered by <a href="https://www.gatsbyjs.com/">Gatsbyjs</a> ♥ Theme Walker`,
+    footerHTML: `Copyright © 2021 <a href="https://github.com/geekaven" rel="noreferrer">GeeKaven</a> 的博客<br>♥ Powered by <a href="https://www.gatsbyjs.com/">Gatsbyjs</a> ♥ Theme Walker`,
     dateFormat: `YYYY-MM-DD`,
     language: `zh`,
     cdn: [
-      `https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css`,
+      // `https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css`,
       `https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css`,
       `https://fonts.googleapis.com/css?family=Droid+Serif:400,700`,
       `https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css`,
