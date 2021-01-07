@@ -2,6 +2,8 @@
 import './src/modern-normalize.css'
 // custom global styles
 import './src/global.css'
+// custom animate styles
+import './src/animate.css'
 // custom style
 import './src/style.css'
 
