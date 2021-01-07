@@ -23,7 +23,7 @@ const PageList = ({ posts, children }) => {
             </Link>
           )}
           <div className="content">
-            <Link to={node.fields.slug}>
+            <Link to={node.fields.slug} aria-label={node.frontmatter.title}>
               <h2 className="post-title text-xl font-extrabold mt-5 md:mt-0">
                 {node.frontmatter.title}
               </h2>

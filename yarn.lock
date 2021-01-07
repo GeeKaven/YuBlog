@@ -2106,7 +2106,7 @@ acorn-node@^1.6.1:
     acorn-walk "^7.0.0"
     xtend "^4.0.2"
 
-acorn-walk@^7.0.0, acorn-walk@^7.1.1:
+acorn-walk@^7.0.0:
   version "7.2.0"
   resolved "https://registry.npm.taobao.org/acorn-walk/download/acorn-walk-7.2.0.tgz#0de889a601203909b0fbe07b8938dc21d2e967bc"
   integrity sha1-DeiJpgEgOQmw++B7iTjcIdLpZ7w=
@@ -2829,16 +2829,6 @@ better-queue@^3.8.10:
     node-eta "^0.9.0"
     uuid "^3.0.0"
 
-bfj@^6.1.1:
-  version "6.1.2"
-  resolved "https://registry.npm.taobao.org/bfj/download/bfj-6.1.2.tgz#325c861a822bcb358a41c78a33b8e6e2086dde7f"
-  integrity sha1-MlyGGoIryzWKQceKM7jm4ght3n8=
-  dependencies:
-    bluebird "^3.5.5"
-    check-types "^8.0.3"
-    hoopy "^0.1.4"
-    tryer "^1.0.1"
-
 big.js@^5.2.2:
   version "5.2.2"
   resolved "https://registry.npm.taobao.org/big.js/download/big.js-5.2.2.tgz#65f0af382f578bcdc742bd9c281e9cb2d7768328"
@@ -3491,11 +3481,6 @@ chardet@^0.7.0:
   resolved "https://registry.npm.taobao.org/chardet/download/chardet-0.7.0.tgz#90094849f0937f2eedc2425d0d28a9e5f0cbad9e"
   integrity sha1-kAlISfCTfy7twkJdDSip5fDLrZ4=
 
-check-types@^8.0.3:
-  version "8.0.3"
-  resolved "https://registry.npm.taobao.org/check-types/download/check-types-8.0.3.tgz#3356cca19c889544f2d7a95ed49ce508a0ecf552"
-  integrity sha1-M1bMoZyIlUTy16le1JzlCKDs9VI=
-
 cheerio-select-tmp@^0.1.0:
   version "0.1.1"
   resolved "https://registry.npm.taobao.org/cheerio-select-tmp/download/cheerio-select-tmp-0.1.1.tgz#55bbef02a4771710195ad736d5e346763ca4e646"
@@ -3779,7 +3764,7 @@ command-exists@^1.2.4:
   resolved "https://registry.npm.taobao.org/command-exists/download/command-exists-1.2.9.tgz#c50725af3808c8ab0260fd60b01fbfa25b954f69"
   integrity sha1-xQclrzgIyKsCYP1gsB+/oluVT2k=
 
-commander@^2.18.0, commander@^2.20.0, commander@^2.20.3, commander@^2.8.1:
+commander@^2.20.0, commander@^2.20.3, commander@^2.8.1:
   version "2.20.3"
   resolved "https://registry.npm.taobao.org/commander/download/commander-2.20.3.tgz?cache=0&sync_timestamp=1607933281807&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcommander%2Fdownload%2Fcommander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
   integrity sha1-/UhehMA+tIgcIHIrpIA16FMa6zM=
@@ -5030,11 +5015,6 @@ ee-first@1.1.1:
   resolved "https://registry.npm.taobao.org/ee-first/download/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
-ejs@^2.6.1:
-  version "2.7.4"
-  resolved "https://registry.npm.taobao.org/ejs/download/ejs-2.7.4.tgz#48661287573dcc53e366c7a1ae52c3a120eec9ba"
-  integrity sha1-SGYSh1c9zFPjZsehrlLDoSDuybo=
-
 electron-to-chromium@^1.3.621:
   version "1.3.633"
   resolved "https://registry.npm.taobao.org/electron-to-chromium/download/electron-to-chromium-1.3.633.tgz?cache=0&sync_timestamp=1608748413003&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Felectron-to-chromium%2Fdownload%2Felectron-to-chromium-1.3.633.tgz#16dd5aec9de03894e8d14a1db4cda8a369b9b7fe"
@@ -5630,7 +5610,7 @@ express-graphql@^0.9.0:
     http-errors "^1.7.3"
     raw-body "^2.4.1"
 
-express@^4.16.3, express@^4.17.1:
+express@^4.17.1:
   version "4.17.1"
   resolved "https://registry.npm.taobao.org/express/download/express-4.17.1.tgz#4491fc38605cf51f8629d39c2b5d026f98a4c134"
   integrity sha1-RJH8OGBc9R+GKdOcK10Cb5ikwTQ=
@@ -5933,11 +5913,6 @@ filesize@3.5.11:
   version "3.5.11"
   resolved "https://registry.npm.taobao.org/filesize/download/filesize-3.5.11.tgz#1919326749433bb3cf77368bd158caabcc19e9ee"
   integrity sha1-GRkyZ0lDO7PPdzaL0VjKq8wZ6e4=
-
-filesize@^3.6.1:
-  version "3.6.1"
-  resolved "https://registry.npm.taobao.org/filesize/download/filesize-3.6.1.tgz#090bb3ee01b6f801a8a8be99d31710b3422bb317"
-  integrity sha1-CQuz7gG2+AGoqL6Z0xcQs0Irsxc=
 
 fill-range@^4.0.0:
   version "4.0.0"
@@ -6458,13 +6433,6 @@ gatsby-plugin-webpack-bundle-analyser-v2@^1.1.18:
   dependencies:
     "@babel/runtime" "^7.12.5"
     webpack-bundle-analyzer "^4.2.0"
-
-gatsby-plugin-webpack-bundle-analyzer@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.npm.taobao.org/gatsby-plugin-webpack-bundle-analyzer/download/gatsby-plugin-webpack-bundle-analyzer-1.0.5.tgz#1e47b152cccbc5cbd74415cf70a659f5b5274fb5"
-  integrity sha1-HkexUszLxcvXRBXPcKZZ9bUnT7U=
-  dependencies:
-    webpack-bundle-analyzer "^3.3.2"
 
 gatsby-react-router-scroll@^3.4.0:
   version "3.4.0"
@@ -7275,14 +7243,6 @@ gzip-size@3.0.0:
   dependencies:
     duplexer "^0.1.1"
 
-gzip-size@^5.0.0:
-  version "5.1.1"
-  resolved "https://registry.npm.taobao.org/gzip-size/download/gzip-size-5.1.1.tgz?cache=0&sync_timestamp=1605523115814&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fgzip-size%2Fdownload%2Fgzip-size-5.1.1.tgz#cb9bee692f87c0612b232840a873904e4c135274"
-  integrity sha1-y5vuaS+HwGErIyhAqHOQTkwTUnQ=
-  dependencies:
-    duplexer "^0.1.1"
-    pify "^4.0.1"
-
 gzip-size@^6.0.0:
   version "6.0.0"
   resolved "https://registry.npm.taobao.org/gzip-size/download/gzip-size-6.0.0.tgz?cache=0&sync_timestamp=1605523115814&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fgzip-size%2Fdownload%2Fgzip-size-6.0.0.tgz#065367fd50c239c0671cbcbad5be3e2eeb10e462"
@@ -7556,11 +7516,6 @@ homedir-polyfill@^1.0.1:
   integrity sha1-dDKYzvTlrz4ZQWH7rcwhUdOgWOg=
   dependencies:
     parse-passwd "^1.0.0"
-
-hoopy@^0.1.4:
-  version "0.1.4"
-  resolved "https://registry.npm.taobao.org/hoopy/download/hoopy-0.1.4.tgz#609207d661100033a9a9402ad3dea677381c1b1d"
-  integrity sha1-YJIH1mEQADOpqUAq096mdzgcGx0=
 
 hosted-git-info@^2.1.4:
   version "2.8.8"
@@ -10202,7 +10157,7 @@ open@^7.0.3:
     is-docker "^2.0.0"
     is-wsl "^2.1.1"
 
-opener@^1.5.1, opener@^1.5.2:
+opener@^1.5.2:
   version "1.5.2"
   resolved "https://registry.npm.taobao.org/opener/download/opener-1.5.2.tgz#5d37e1f35077b9dcac4301372271afdeb2a13598"
   integrity sha1-XTfh81B3udysQwE3InGv3rKhNZg=
@@ -11724,6 +11679,11 @@ react-hot-loader@^4.12.21:
     react-lifecycles-compat "^3.0.4"
     shallowequal "^1.1.0"
     source-map "^0.7.3"
+
+react-icons@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.npm.taobao.org/react-icons/download/react-icons-4.1.0.tgz#9ca9bcbf2e3aee8e86e378bb9d465842947bbfc3"
+  integrity sha1-nKm8vy467o6G43i7nUZYQpR7v8M=
 
 react-is@^16.12.0, react-is@^16.7.0, react-is@^16.8.1:
   version "16.13.1"
@@ -13873,11 +13833,6 @@ trough@^1.0.0:
   resolved "https://registry.npm.taobao.org/true-case-path/download/true-case-path-2.2.1.tgz#c5bf04a5bbec3fd118be4084461b3a27c4d796bf"
   integrity sha1-xb8EpbvsP9EYvkCERhs6J8TXlr8=
 
-tryer@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.npm.taobao.org/tryer/download/tryer-1.0.1.tgz#f2c85406800b9b0f74c9f7465b81eaad241252f8"
-  integrity sha1-8shUBoALmw90yfdGW4HqrSQSUvg=
-
 ts-node@^9:
   version "9.1.1"
   resolved "https://registry.npm.taobao.org/ts-node/download/ts-node-9.1.1.tgz?cache=0&sync_timestamp=1607350615574&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fts-node%2Fdownload%2Fts-node-9.1.1.tgz#51a9a450a3e959401bda5f004a72d54b936d376d"
@@ -14557,25 +14512,6 @@ web-namespaces@^1.0.0, web-namespaces@^1.1.2:
   resolved "https://registry.npm.taobao.org/web-namespaces/download/web-namespaces-1.1.4.tgz#bc98a3de60dadd7faefc403d1076d529f5e030ec"
   integrity sha1-vJij3mDa3X+u/EA9EHbVKfXgMOw=
 
-webpack-bundle-analyzer@^3.3.2:
-  version "3.9.0"
-  resolved "https://registry.npm.taobao.org/webpack-bundle-analyzer/download/webpack-bundle-analyzer-3.9.0.tgz?cache=0&sync_timestamp=1608133719952&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fwebpack-bundle-analyzer%2Fdownload%2Fwebpack-bundle-analyzer-3.9.0.tgz#f6f94db108fb574e415ad313de41a2707d33ef3c"
-  integrity sha1-9vlNsQj7V05BWtMT3kGicH0z7zw=
-  dependencies:
-    acorn "^7.1.1"
-    acorn-walk "^7.1.1"
-    bfj "^6.1.1"
-    chalk "^2.4.1"
-    commander "^2.18.0"
-    ejs "^2.6.1"
-    express "^4.16.3"
-    filesize "^3.6.1"
-    gzip-size "^5.0.0"
-    lodash "^4.17.19"
-    mkdirp "^0.5.1"
-    opener "^1.5.1"
-    ws "^6.0.0"
-
 webpack-bundle-analyzer@^4.2.0:
   version "4.3.0"
   resolved "https://registry.npm.taobao.org/webpack-bundle-analyzer/download/webpack-bundle-analyzer-4.3.0.tgz?cache=0&sync_timestamp=1608133719952&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fwebpack-bundle-analyzer%2Fdownload%2Fwebpack-bundle-analyzer-4.3.0.tgz#2f3c0ca9041d5ee47fa418693cf56b4a518b578b"
@@ -14966,7 +14902,7 @@ ws@7.4.1, ws@^7.1.2, ws@^7.3.0:
   resolved "https://registry.npm.taobao.org/ws/download/ws-7.4.1.tgz?cache=0&sync_timestamp=1607113213006&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fws%2Fdownload%2Fws-7.4.1.tgz#a333be02696bd0e54cea0434e21dcc8a9ac294bb"
   integrity sha1-ozO+Amlr0OVM6gQ04h3MiprClLs=
 
-ws@^6.0.0, ws@^6.2.1:
+ws@^6.2.1:
   version "6.2.1"
   resolved "https://registry.npm.taobao.org/ws/download/ws-6.2.1.tgz?cache=0&sync_timestamp=1607113213006&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fws%2Fdownload%2Fws-6.2.1.tgz#442fdf0a47ed64f59b6a5d8ff130f4748ed524fb"
   integrity sha1-RC/fCkftZPWbal2P8TD0dI7VJPs=

@@ -19,9 +19,8 @@ module.exports = {
     language: `zh`,
     cdn: [
       // `https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css`,
-      `https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css`,
-      `https://fonts.googleapis.com/css?family=Droid+Serif:400,700`,
-      `https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css`,
+      `https://fonts.googleapis.com/css?family=Droid+Serif:400,700&display=swap`,
+      // `https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css`,
     ],
   },
   plugins: [
