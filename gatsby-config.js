@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `GeeKaven`,
-    image: `https://cdn.jsdelivr.net/gh/GeeKaven/BlogAssets@master/img/avater1.png`,
+    image: `https://cdn.jsdelivr.net/gh/GeeKaven/BlogAssets@v1.0.0/img/avater1.png`,
     description: `A web developer, Love Code, Love ACG.`,
     siteUrl: `https://tawawa.moe/`,
     social: {

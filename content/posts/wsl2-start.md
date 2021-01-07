@@ -51,11 +51,11 @@ PS C:\Users\xxx> wsl -l -v
 我通常将开发环境设置在 WSL，在 Windows 中用 VSCode 进行远程连接，体验像本地一样的开发。
 
 打开 VSCode，点击左下角如图  
-![vscode-wsl](https://cdn.jsdelivr.net/gh/GeeKaven/BlogAssets@master/img/vscode-wsl.png)
+![vscode-wsl](https://cdn.jsdelivr.net/gh/GeeKaven/BlogAssets@v1.0.0/img/vscode-wsl.png)
 
 出现如下屏幕选择`Remote-WSL: New Window。如果要在 WSL 中使用多个发行版，可以选择 using Distro..
 
-![vscode-wsl2](https://cdn.jsdelivr.net/gh/GeeKaven/BlogAssets@master/img/vscode-wsl2.png)
+![vscode-wsl2](https://cdn.jsdelivr.net/gh/GeeKaven/BlogAssets@v1.0.0/img/vscode-wsl2.png)
 
 除了以上，还可以使用 Remote - Containers 模式进行开发，也就是连接一个 Docker Container，而不是连接到 WSL 或 Linux。
 
@@ -65,11 +65,11 @@ PS C:\Users\xxx> wsl -l -v
 
 我想以前在 WSL 中使用 docker 是比较复杂的，现在 Docker Desktop 提供了一种方法，仅在 Windows 中打开`Use the WSL 2 based engine`即可。
 
-![wsl-docker1](https://cdn.jsdelivr.net/gh/GeeKaven/BlogAssets@master/img/wsl-docker1.png)
+![wsl-docker1](https://cdn.jsdelivr.net/gh/GeeKaven/BlogAssets@v1.0.0/img/wsl-docker1.png)
 
 然后启用集成
 
-![wsl-docker2](https://cdn.jsdelivr.net/gh/GeeKaven/BlogAssets@master/img/wsl-docker2.png)
+![wsl-docker2](https://cdn.jsdelivr.net/gh/GeeKaven/BlogAssets@v1.0.0/img/wsl-docker2.png)
 
 官方文档说，WSL2 有更快的启动速度，和更少的资源消耗
 
@@ -99,7 +99,7 @@ eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 
 最后成功访问
 
-![wsl-nginx](https://cdn.jsdelivr.net/gh/GeeKaven/BlogAssets@master/img/wsl-nginx.png)
+![wsl-nginx](https://cdn.jsdelivr.net/gh/GeeKaven/BlogAssets@v1.0.0/img/wsl-nginx.png)
 
 ## 与 WSL 的区别
 
@@ -150,7 +150,7 @@ eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 - WSL2 是 IP 是动态变化的，上面已经将`/etc/resolv.conf`动态生成关闭，但是 IP 还是会变的
   因此我们需要在 WSL 中获取 IP 然后设置代理，下面是我的代理脚本，可导入至`.zshrc`或其他配置文件中
 
-```
+```bash
 export hostip=$(ip route | grep default | awk '{print $3}') # 获取ip
 proxy() {
     # 开启代理
