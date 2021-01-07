@@ -9,7 +9,11 @@ const PageTemplate = ({ data }) => {
   const page = data.markdownRemark
 
   return (
-    <Layout title={page.frontmatter.title}>
+    <Layout
+      title={page.frontmatter.title}
+      description={page.frontmatter.description || page.excerpt}
+      socialImage={page.frontmatter.image}
+    >
       <Main>
         <SideBar />
         <Page page={page}>
@@ -29,6 +33,7 @@ export const query = graphql`
       fields {
         slug
       }
+      excerpt(pruneLength: 120)
       frontmatter {
         description
         image

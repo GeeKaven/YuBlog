@@ -11,7 +11,11 @@ const BlogPostTemplate = ({ data, pageContext }) => {
 
   const { previous, next } = pageContext
   return (
-    <Layout title={post.frontmatter.title}>
+    <Layout
+      title={post.frontmatter.title}
+      description={post.frontmatter.description || post.excerpt}
+      socialImage={post.frontmatter.image}
+    >
       <Main>
         <SideBar isPostPage={true} toc={post.tableOfContents} />
         <Post post={post}>
