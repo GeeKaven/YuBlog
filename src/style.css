@@ -401,7 +401,8 @@
 body {
   font: 400 18px/1.42 'Droid Serif', 'PingFang SC', 'Hiragino Sans GB',
     'Droid Sans Fallback', 'Microsoft YaHei', sans-serif;
-  overflow-y: overlay;
+  overflow: overlay;
+  height: 100vh;
 }
 .main {
   max-width: 1200px;
@@ -484,13 +485,24 @@ body {
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  padding: 1rem;
 }
+
 .menu-container .menu {
   display: block;
   padding: 8px 16px;
   position: relative;
   margin: 4px 0;
   color: #718096;
+}
+@media (max-width: 1023px) {
+  .menu-container {
+    flex-direction: row;
+  }
+  .menu-container .menu {
+    margin: 4px 4px;
+    padding: 4px 4px;
+  }
 }
 .menu-container .menu:hover {
   color: #1a202c;
@@ -615,9 +627,22 @@ body {
   height: 100vh;
   overflow-y: auto;
 }
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   .sidebar-content {
+    width: 100%;
     height: auto;
+    min-height: 70px;
+    font-size: 0.875em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0,0,0,.12);
   }
 }
 

@@ -4,7 +4,7 @@ import { getIcon, getLink } from './utils'
 const SocialLink = ({ social, description }) => {
   return (
     <div
-      className="animate__animated animate__fadeInLeft"
+      className="hidden lg:block animate__animated animate__fadeInLeft"
       style={{ animationDelay: `0.4s` }}
     >
       <p className="my-4 text-gray-600 font-light hidden lg:block">
