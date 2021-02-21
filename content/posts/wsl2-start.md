@@ -1,7 +1,7 @@
 ---
 title: WSL2 初体验
 date: 2020-05-25 19:22:50
-tags:
+tags: ['windows','wsl']
 description: 'WSL2 已经作为Windows 10 version 2004中的标准组件的一部分，虽然还未大范围推送，我也迫不及待的从某渠道下载iso文件进行了第一时间的更新。'
 ---
 

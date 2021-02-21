@@ -1,7 +1,7 @@
 ---
 title: 名为“幸福”的动画
 date: 2020-05-04 20:03:28
-tags:
+tags: ['Anime']
 description: '今天要说的故事，那就是自从《The Rolling Girls》完结后的故事'
 image: 'https://cdn.jsdelivr.net/gh/GeeKaven/BlogAssets@v1.0.0/img/the-rolling-girls.jpeg'
 ---
