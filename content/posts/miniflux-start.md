@@ -30,7 +30,7 @@ services:
       - LOG_DATE_TIME=1
       # 设置抓取时间30min
       - POLLING_FREQUENCY=30
-      # 清理周期180甜
+      # 清理周期180天
       - CLEANUP_ARCHIVE_READ_DAYS=180
       - DATABASE_URL=postgres://miniflux:secret@db/miniflux?sslmode=disable
       # 下面是创建用户
