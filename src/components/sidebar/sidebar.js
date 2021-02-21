@@ -33,7 +33,7 @@ const SideBar = ({ isPostPage, toc }) => {
     <div id="sidebar" className="sidebar-wrapper lg:static lg:w-1/4">
       <div className="lg:sticky top-0">
         <div className="sidebar-content">
-          <div className="flex lg:block p-2 lg:px-0 lg:py-4 items-center lg:static lg:block bg-white">
+          <div className="flex lg:block p-2 lg:px-0 lg:py-2 items-center lg:static lg:block bg-white">
             <Link to="/">
               <img
                 className="animate__animated animate__fadeInLeft avatar rounded-lg mx-4 lg:mt-12 lg:mx-0 mt-0 lg:w-24 lg:h-24 w-12 w-12"
