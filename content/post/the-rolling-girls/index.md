@@ -27,8 +27,6 @@ image: 'https://cdn.jsdelivr.net/gh/GeeKaven/BlogAssets@v1.0.0/img/the-rolling-g
 那么，优秀的动画需要什么东西呢？"只需要爱就够了"，来自制作者对于作品的爱，作品所表达出的爱，观众对于作品的爱。
 角色设计的 tanu 和脚本むとうやすゆき依然没有停止对 TRG 的创作。
 
-cv 的一些推
-
 而动画制作公司 wit studio 也为本作发行了原画集。
 
 前段时间看冈骚的时候又听到了蓝心的歌，又回想起 5 年前追 TRG 的时光，真好。
