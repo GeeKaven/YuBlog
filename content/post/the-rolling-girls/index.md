@@ -31,4 +31,4 @@ image: 'https://cdn.jsdelivr.net/gh/GeeKaven/BlogAssets@v1.0.0/img/the-rolling-g
 
 我已经很少重看以前的动画了，不知道自己什么时候会忘记 TRG 给我所带来的感动，或许是官推不再更新的那一天，又或是我不再看动画的那天吧。
 
-后续。
+后续。。
