@@ -9,6 +9,8 @@ build_search_index = false
 
 theme = "even"
 
+title = "Tawawa 的小窝"
+
 taxonomies = [
     # You can enable/disable RSS
     {name = "categories", feed = true},
