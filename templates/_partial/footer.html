@@ -1,0 +1,49 @@
+{% macro footer() %}
+
+{# Social Links #}
+{% if config.extra.social %}
+  <div class="social-links">
+    {% for item in config.extra.social %}
+      {% if item.url %}
+        {% if item.name != 'email' %}
+          <a href="{{ item.url | replace(from="$BASE_URL", to=config.base_url) }}" class="iconfont icon-{{ item.name }}" title="{{ item.name }}"></a>
+        {% else %}
+          <a href="mailto:{{ item.url }}" class="iconfont icon-{{ item.name }}" title="{{ item.name }}"></a>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+
+    {% if config.generate_feed %}
+      <a href="{{ get_url(path=config.feed_filename) | safe }}" class="iconfont icon-rss" title="rss"></a>
+    {% endif %}
+  </div>
+{% endif %}
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://www.getzola.org/">Zola</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题基于 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    {% set current = now() | date(format="%Y") %}
+    &copy;
+    {% if config.extra.since and config.extra.since != current %}
+      {{ config.extra.since }} - {{ current }}
+    {% else %}
+      {{ current }}
+    {% endif %} 
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">{{ config.extra.author | safe }}</span>
+  </span>
+</div>
+
+{% endmacro footer %}

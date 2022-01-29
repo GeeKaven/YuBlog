@@ -1,0 +1,45 @@
+
+{% import "_partial/_head/meta.html" as meta %}
+{% import "_script/analytics.html" as analytics %}
+
+{% macro head() %}
+
+{# Website mata #}
+{{ meta::meta() }}
+
+
+{# Website rss #}
+{% if config.generate_feed %}
+  <link rel="alternate" type={% if config.feed_filename == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="RSS" href="{{ get_url(path=config.feed_filename) | safe }}">
+{% endif %}
+
+{# Website favicon #}
+{% if config.extra.favicon %}
+  <link rel="shortcut icon" type="image/x-icon" href="{{ get_url(path=config.extra.favicon) }}?v={{ config.extra.version }}" />
+{% endif %}
+
+{# Katex support #}
+{% if config.extra.katex_enable %}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css" integrity="sha256-94CNZ/bJtwrBYZrXhCOBvpB4rZUzBnvAsirFv31TMGo=" crossorigin="anonymous">  <script src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" integrity="sha256-bgI9WhLOPSUlPrdgHUg3rPIB2vq+D+mYkUTM3q0U8fw=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" integrity="sha256-bgI9WhLOPSUlPrdgHUg3rPIB2vq+D+mYkUTM3q0U8fw=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/mathtex-script-type.min.js" integrity="sha256-d+R93Fs6+ZBEU3VEH7u/qz+b02iCPKEPmLJEgRf2+MU=" crossorigin="anonymous"></script>  
+  {% if config.extra.katex_auto_render %}
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js" integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI=" crossorigin="anonymous" 
+    onload="renderMathInElement(document.body);"></script>
+  {% endif %}
+{% endif %}
+
+{# Theme styling #}
+<link rel="stylesheet" type="text/css" href="{{ get_url(path='style.css', trailing_slash=false) }}?v={{ config.extra.version }}" />
+
+{# Analytics and push #}
+{% if not env.debug %}
+  {{ analytics::analytics() }}
+{% endif %}
+
+<script>
+  window.config = {toc : {{ config.extra.toc }}};
+</script>
+
+  
+{% endmacro head %}

@@ -1,0 +1,56 @@
+
+{% import '_partial/head.html' as head %}
+{% import '_partial/header.html' as header %}
+{% import '_partial/slideout.html' as slideout %}
+{% import '_partial/footer.html' as footer %}
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    {{ head::head() }}
+    <title>{% block title %}{% endblock title%}</title>
+  </head>
+
+  <body>
+    {{ slideout::slideout() }}
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header">
+        {{ header::header() }}
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            {% block content %}
+            {% endblock content%}
+          </div>
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+        {{ footer::footer() }}
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    {%
+      set js_libs = [
+        'js/lib/jquery/jquery.min.js',
+        'js/lib/slideout/slideout.min.js'
+      ]
+    %}
+    
+    {% for lib in js_libs %}
+      {% if lib %}
+        <script type="text/javascript" src="{{ get_url(path=lib) }}"></script>
+      {% endif %}
+    {% endfor %}
+
+    <script type="text/javascript" src="{{ get_url(path="js/even.js", trailing_slash=false)}}?v={{config.extra.version}}"></script>
+
+  </body>
+</html>

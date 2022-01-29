@@ -1,0 +1,40 @@
+{% extends "_layout.html" %}
+
+{% import '_macro/post.html' as post_template %}
+{% import '_partial/_post/toc.html' as toc %}
+
+{% block title %} {{ page.title }} - {{ config.title }} {% endblock %}
+
+{% block content %}
+<article class="post">
+  {{ post_template::title(post=page) }}
+
+  {# Post TOC #}
+  {{ toc::toc() }}
+
+  <div class="post-content">
+    {{ page.content | safe }}
+  </div>
+
+  <footer class="post-footer">
+    {# Post Pagination #}
+    <nav class="post-nav">
+      {% if page.earlier %}
+        <a class="prev" href="{{ page.earlier.permalink }}">
+          <i class="iconfont icon-left"></i>
+          <span class="prev-text nav-default">{{ page.earlier.title }}</span>
+          <span class="prev-text nav-mobile">上一篇</span>
+        </a>
+      {% endif %}
+      {% if page.later %}
+        <a class="next" href="{{ page.later.permalink }}">
+          <span class="next-text nav-default">{{ page.later.title }}</span>
+          <span class="prev-text nav-mobile">下一篇</span>
+          <i class="iconfont icon-right"></i>
+        </a>
+      {% endif %}
+    </nav>
+  </footer>
+
+</article>
+{% endblock content %}

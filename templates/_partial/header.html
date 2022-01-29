@@ -1,0 +1,21 @@
+{% macro header() %}
+
+<div class="logo-wrapper">
+  <a href="{{ config.base_url }}" class="logo">{{ config.title }}</a>
+</div>
+
+<nav class="site-navbar">
+  {% if config.extra.even_menu %}
+    <ul id="menu" class="menu">
+      {% for item in config.extra.even_menu %}
+        <li class="menu-item">
+          <a class="menu-item-link" href="{{ item.url | replace(from="$BASE_URL", to=config.base_url) }}">
+            {{ item.name }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</nav>
+
+{% endmacro header %}
