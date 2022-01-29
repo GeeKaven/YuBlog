@@ -1,5 +1,5 @@
 +++
 title = "About"
 path = "about"
-template = "about.html"
+template = "single_page.html"
 +++

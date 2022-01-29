@@ -1,9 +1,6 @@
 +++
 title = "JMM 角度解析 volatile 关键字作用与基础原理"
 date = 2021-01-03 21:53:38+08:00
-[taxonomies]
-categories = ["tec"]
-tags = ["Java"]
 +++
 
 首先看下面一段代码：

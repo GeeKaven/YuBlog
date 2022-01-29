@@ -1,9 +1,6 @@
 +++
 title = "VPS 开始必做的事"
 date = 2021-02-04 21:53:38+08:00
-[taxonomies]
-categories = ["tec"]
-tags = ["VPS"]
 +++
 
 记录下拿到新 VPS 后需要做的一些操作

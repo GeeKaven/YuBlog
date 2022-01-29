@@ -1,9 +1,6 @@
 +++
 title = "名为「幸福」的动画"
 date = 2020-09-03 20:53:38+08:00
-[taxonomies]
-categories = ["share"]
-tags = ["anime"]
 +++
 
 今天要说的故事，那就是自从《The Rolling Girls》完结后，

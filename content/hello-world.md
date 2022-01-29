@@ -1,9 +1,6 @@
 +++
 title = "Hello Tawawa!"
 date = 2020-05-01 12:53:42+08:00
-[taxonomies]
-categories = ["nichijou"]
-tags = ["blog"]
 +++
 
 说实话，我也不知道这是第几个 blog 了，

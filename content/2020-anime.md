@@ -1,9 +1,6 @@
 +++
 title = "2020 动画总结"
 date = 2021-01-01 12:17:34+08:00
-[taxonomies]
-categories = ["share"]
-tags = ["anime"]
 +++
 
 > 也许业界还不会完！
