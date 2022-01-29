@@ -5,22 +5,46 @@ base_url = "https://tawawa.moe"
 compile_sass = true
 
 # Whether to build a search index to be used later on by a JavaScript library
-build_search_index = false
 
 title = "Tawawa 的小窝"
+description = "A super simple theme for Zola. It's a port of the hexo-theme-even"
 
-taxonomies = [
-    # You can enable/disable RSS
-    {name = "categories", feed = true},
-    {name = "tags", feed = true},
-]
+build_search_index = false
+
+generate_feed = true
+feed_filename  = "rss.xml"
 
 [markdown]
 # Whether to do syntax highlighting
 # Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
 highlight_code = true
+highlight_theme = "OneHalfDark"
 
 [extra]
+author = "geekaven"
+
 # Put all your custom variables here
 even_title = "Tawawa 的小窝" # even 主题页面左上角
-author = "geekaven"
+
+since = 2020
+
+toc = false
+
+even_menu = [
+    {url = "$BASE_URL", name = "Home"},
+    {url = "$BASE_URL/about", name = "About"},
+]
+
+social = [
+    {url = "", name = "Github"},
+]
+
+google_analytics = ""
+
+favicon = "favicon.ico"
+
+katex_enable = false
+katex_auto_render = false
+
+#==========
+version = "0.0.1"
