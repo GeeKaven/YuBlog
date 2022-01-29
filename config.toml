@@ -31,8 +31,9 @@ since = 2020
 toc = false
 
 even_menu = [
-    {url = "$BASE_URL", name = "Home"},
-    {url = "$BASE_URL/about", name = "About"},
+    {url = "$BASE_URL", name = "首页"},
+    {url = "$BASE_URL/archive", name = "归档"},
+    {url = "$BASE_URL/about", name = "关于"},
 ]
 
 social = [
