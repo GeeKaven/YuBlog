@@ -39,8 +39,9 @@
 
     {%
       set js_libs = [
-        'js/lib/jquery/jquery.min.js',
-        'js/lib/slideout/slideout.min.js'
+        'lib/jquery/jquery.min.js',
+        'lib/slideout/slideout.min.js',
+        'lib/live2d-widget/autoload.js'
       ]
     %}
     
@@ -50,7 +51,7 @@
       {% endif %}
     {% endfor %}
 
-    <script type="text/javascript" src="{{ get_url(path="js/even.js", trailing_slash=false)}}?v={{config.extra.version}}"></script>
+    <script type="text/javascript" src="{{ get_url(path="even.js", trailing_slash=false)}}?v={{config.extra.version}}"></script>
 
   </body>
 </html>
