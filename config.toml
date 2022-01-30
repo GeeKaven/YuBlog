@@ -37,7 +37,8 @@ even_menu = [
 ]
 
 social = [
-    {url = "", name = "Github"},
+    {url = "i@tawawa.moe", name = "email"},
+    {url = "https://github.com/GeeKaven", name = "github"},
 ]
 
 google_analytics = ""

@@ -31,7 +31,7 @@
   </span>
 
   <span class="copyright-year">
-    {% set current = now() | date(format="%Y") %}
+    {% set current = now() | date(format="%Y") | int %}
     &copy;
     {% if config.extra.since and config.extra.since != current %}
       {{ config.extra.since }} - {{ current }}
