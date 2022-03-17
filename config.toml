@@ -33,6 +33,7 @@ toc = false
 even_menu = [
     {url = "$BASE_URL", name = "首页"},
     {url = "$BASE_URL/archive", name = "归档"},
+    {url = "$BASE_URL/bangumi", name = "番剧"},
     {url = "$BASE_URL/about", name = "关于"},
 ]
 
@@ -49,4 +50,4 @@ katex_enable = false
 katex_auto_render = false
 
 #==========
-version = "0.0.1"
+version = "0.0.2"

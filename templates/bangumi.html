@@ -1,0 +1,29 @@
+{% extends "_layout.html" %}
+
+{% block selfHead %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bangumi-tv@1.0.2/dist/bangumi.css">
+<script>
+  const bgmConfig = {
+    apiUrl: "https://bangumi-tv.vercel.app",
+    quote: "日々私たちが过ごしている日常は、実は、奇迹の连続なのかもしれない"
+  }
+</script>
+{% endblock selfHead%}
+
+
+{% block title %}
+番剧 - {{ config.title }}
+{% endblock %}
+
+{% block content %}
+<article class="post">
+  <div class="post-content">
+    <div class="bgm-container">
+    </div>
+  </div>
+</article>
+{% endblock %}
+
+{% block selfJs %}
+<script src="https://cdn.jsdelivr.net/npm/bangumi-tv@1.0.2/dist/bangumi.js"></script>
+{% endblock selfJs%}

@@ -9,6 +9,7 @@
 <html lang="zh-CN">
   <head>
     {{ head::head() }}
+    {% block selfHead %}{% endblock selfHead%}
     <title>{% block title %}{% endblock title%}</title>
   </head>
 
@@ -52,6 +53,6 @@
     {% endfor %}
 
     <script type="text/javascript" src="{{ get_url(path="even.js", trailing_slash=false)}}?v={{config.extra.version}}"></script>
-
+    {% block selfJs %}{% endblock selfJs%}
   </body>
 </html>
