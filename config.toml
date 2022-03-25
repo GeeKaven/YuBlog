@@ -6,7 +6,7 @@ compile_sass = true
 
 # Whether to build a search index to be used later on by a JavaScript library
 
-title = "Tawawa 的小窝"
+title = "tawawa 杂货铺"
 description = "A super simple theme for Zola. It's a port of the hexo-theme-even"
 
 build_search_index = false
@@ -24,7 +24,7 @@ highlight_theme = "OneHalfDark"
 author = "geekaven"
 
 # Put all your custom variables here
-even_title = "Tawawa 的小窝" # even 主题页面左上角
+even_title = "tawawa 杂货铺" # even 主题页面左上角
 
 since = 2020
 
