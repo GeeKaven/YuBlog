@@ -1,18 +1,25 @@
-import Post from '../interfaces/post'
+import { getAllPosts } from '@/lib/api'
+import { PostInfoType } from '@/interfaces/post'
+import PostList from '@/components/post-list'
 
 type Props = {
-  allPosts: Post[]
+  allPosts: PostInfoType[]
 }
 
-export default function Index({  }: Props) {
-
+export default function Index({ allPosts }: Props) {
   return (
-    <>
-    </>
+    <div className='min-h-screen'>
+      <PostList posts={allPosts} />
+    </div>
   )
 }
 
 export const getStaticProps = async () => {
-
-  return {  }
+  const allPosts = await getAllPosts()
+  console.log(allPosts)
+  return {
+    props: {
+      allPosts,
+    },
+  }
 }

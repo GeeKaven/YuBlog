@@ -1,4 +1,5 @@
-import type PostType from '../../interfaces/post'
+import { PostType } from '@/interfaces/post'
+import { getAllPostSlugs, getPostBySlug } from '@/lib/api'
 
 type Props = {
   post: PostType
@@ -7,9 +8,7 @@ type Props = {
 }
 
 export default function Post({ post, morePosts, preview }: Props) {
-  return (
-    <></>
-  )
+  return <></>
 }
 
 type Params = {
@@ -19,18 +18,24 @@ type Params = {
 }
 
 export async function getStaticProps({ params }: Params) {
-  
-
+  const post = await getPostBySlug(params.slug)
   return {
     props: {
-      post: {
-
-      },
+      post,
     },
   }
 }
 
 export async function getStaticPaths() {
-
-  return {}
+  const paths = await getAllPostSlugs()
+  return {
+    paths: paths.map((path) => {
+      return {
+        params: {
+          slug: path,
+        },
+      }
+    }),
+    fallback: false,
+  }
 }

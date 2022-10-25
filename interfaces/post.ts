@@ -1,16 +1,18 @@
-import type Author from './author'
-
-type PostType = {
-  slug: string
+export type PostInfoType = {
   title: string
   date: string
-  coverImage: string
-  author: Author
-  excerpt: string
-  ogImage: {
-    url: string
-  }
-  content: string
+  year: string
+  slug: string
 }
 
-export default PostType
+export type PostType = {
+  permalink: string
+  title: string
+  date: string
+  content: string
+  updated: string
+  tags: string[]
+  toc: string
+  prev?: { title: string; url: string }
+  next?: { title: string; url: string }
+}
