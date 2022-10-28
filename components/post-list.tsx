@@ -17,8 +17,8 @@ const PostList = ({ posts }: PostListProps) => {
           )}
           <article key={index} className='my-8'>
             <h3 className='font-medium text-lg sm:text-xl'>
-              <Link href={`/posts/${post.slug}`}>
-                <a className='hover:text-primary'>{post.title}</a>
+              <Link href={`/posts/${post.slug}`} className='hover:text-primary'>
+                {post.title}
               </Link>
             </h3>
             <span className='font-medium inline-block text-sm mt-2 opacity-50'>
