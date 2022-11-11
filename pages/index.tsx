@@ -1,9 +1,9 @@
-import { getAllPosts } from '@/lib/api'
-import { PostInfoType } from '@/interfaces/post'
+import { PostFrontmatter } from '@/interfaces/post'
 import PostList from '@/components/post-list'
+import { getAllPostFrontMatter } from 'utils/post'
 
 type Props = {
-  allPosts: PostInfoType[]
+  allPosts: PostFrontmatter[]
 }
 
 export default function Index({ allPosts }: Props) {
@@ -15,11 +15,11 @@ export default function Index({ allPosts }: Props) {
 }
 
 export const getStaticProps = async () => {
-  const allPosts = await getAllPosts()
+  const allPosts: PostFrontmatter[] = await getAllPostFrontMatter()
   console.log(allPosts)
   return {
     props: {
-      allPosts,
+      allPosts
     },
   }
 }

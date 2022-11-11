@@ -2,12 +2,14 @@
 
 module.exports = {
   content: ['./components/**/*.tsx', './pages/**/*.tsx'],
-  darkMode: 'class',
+  darkMode: ['class', '[data-theme="dark"]'],
   theme: {
     extend: {
       colors: {
-        primary: '#6366f1',
-        night: '#22232a',
+        primary: 'hsl(var(--color-primary) / <alpha-value>)',
+        secondary: 'hsl(var(--color-secondary) / <alpha-value>)',
+        tertiary: 'hsl(var(--color-tertiary) / <alpha-value>)',
+        decorative: 'hsl(var(--color-decorative) / <alpha-value>)'
       },
     },
   },

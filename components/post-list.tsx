@@ -1,8 +1,9 @@
-import { PostInfoType } from '@/interfaces/post'
+import { PostFrontmatter } from '@/interfaces/post'
+import dayjs from 'dayjs'
 import Link from 'next/link'
 
 type PostListProps = {
-  posts: PostInfoType[]
+  posts: PostFrontmatter[]
 }
 
 const PostList = ({ posts }: PostListProps) => {
@@ -10,9 +11,9 @@ const PostList = ({ posts }: PostListProps) => {
     <div className='flex-1'>
       {posts.map((post, index) => (
         <div key={index}>
-          {(index === 0 || posts[index - 1].year !== post.year) && (
+          {(index === 0 || dayjs(posts[index - 1].date).year() !== dayjs(post.date).year()) && (
             <h2 className="font-medium text-2xl sm:text-3xl before:content-['#_'] before:text-primary">
-              {post.year}
+              {dayjs(post.date).year()}
             </h2>
           )}
           <article key={index} className='my-8'>
@@ -22,7 +23,7 @@ const PostList = ({ posts }: PostListProps) => {
               </Link>
             </h3>
             <span className='font-medium inline-block text-sm mt-2 opacity-50'>
-              {post.date}
+              {dayjs(post.date).format('LL')}
             </span>
           </article>
         </div>

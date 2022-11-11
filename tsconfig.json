@@ -18,8 +18,8 @@
     "paths": {
       "@/*": ["/*"],
       "@/components/*": ["components/*"],
-      "@/lib/*": ["lib/*"],
       "@/interfaces/*": ["interfaces/*"],
+      "@/data/*": ["data/*"]
     }
   },
   "exclude": ["node_modules"],
