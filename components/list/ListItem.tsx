@@ -22,7 +22,6 @@ const ListItem = (props: JSX.IntrinsicElements['li']) => {
   }
 
   if (type === 'tl') {
-    console.log(typeof childArr[0])
     marker = (
       <span className='flex pt-1.5 pr-2'>
         {/* @ts-ignore */}

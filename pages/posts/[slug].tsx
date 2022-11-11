@@ -1,5 +1,6 @@
 import { bundleMDX } from 'mdx-bundler'
 import remarkGfm from 'remark-gfm'
+import remarkDirective from 'remark-directive'
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import path from 'path'
@@ -11,6 +12,7 @@ import dayjs from 'dayjs'
 import ListItem from '@/components/list/ListItem'
 import OrderedList from '@/components/list/OrderedList'
 import UnorderedList from '@/components/list/UnorderedList'
+import remarkSideNote from 'lib/remark-side-note'
 
 const root = process.cwd()
 
@@ -59,7 +61,12 @@ export async function getStaticProps({ params }: Params) {
       // this is the recommended way to add custom remark/rehype plugins:
       // The syntax might look weird, but it protects you in case we add/remove
       // plugins in the future.
-      options.remarkPlugins = [...(options.remarkPlugins ?? []), remarkGfm]
+      options.remarkPlugins = [
+        ...(options.remarkPlugins ?? []), 
+        remarkGfm,
+        remarkDirective,
+        remarkSideNote
+      ]
       options.rehypePlugins = [
         ...(options.rehypePlugins ?? []),
         rehypeSlug,
