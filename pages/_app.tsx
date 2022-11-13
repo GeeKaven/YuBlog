@@ -1,0 +1,23 @@
+import '../styles/index.css'
+import '../styles/markdown.scss'
+import Layout from '@/components/layout'
+import { ThemeProvider } from 'next-themes'
+import { AppProps } from 'next/app'
+import Head from 'next/head'
+import dayjs from 'dayjs'
+import localizedFormat from 'dayjs/plugin/localizedFormat'
+
+dayjs.extend(localizedFormat)
+
+export default function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <ThemeProvider defaultTheme='system'>
+      <Head>
+        <meta content='width=device-width, initial-scale=1' name='viewport' />
+      </Head>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </ThemeProvider>
+  )
+}
