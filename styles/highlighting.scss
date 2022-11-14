@@ -1,189 +1,227 @@
-// 为什么不通过 prism-react-renderer 的常规方式 theme={themeJsonConfig} 来设置主题，而是通过 css 来进行设置？
-// 因为要想黑暗模式与亮色模式使用不同的主题，所以就需要判断浏览器当前的主题模式，但是由于在服务端渲染时候还无法拿到客户端的主题模式，
-// 所以会水合错误，可以参考这篇文章 https://www.joshwcomeau.com/react/the-perils-of-rehydration/，
-// 而通过 css 设置不需要我们访问浏览器 api，就不会产生这个问题
+/**
+ * CSS Styles for code highlighting.
+ * Feel free to customize token styles 
+ * by copying from a prismjs compatible theme:
+ * https://github.com/PrismJS/prism-themes
+ */
 
-html[data-theme='light'] {
-  pre {
-    .token-line {
-      color: #5e6687;
+/* Code title styles */
+.remark-code-title {
+  @apply rounded-t bg-gray-700 px-5 py-3 font-mono text-sm font-bold text-gray-200;
+}
 
-      .token.comment,
-      .token.prolog,
-      .token.doctype,
-      .token.cdata {
-        color: #898ea4;
-      }
+.remark-code-title + div > pre {
+  @apply mt-0 rounded-t-none;
+}
+pre[class*="language-"] {
+  @apply -mx-8;
+}
 
-      .token.punctuation {
-        color: #5e6687;
-      }
+/* Code block styles */
+.code-highlight {
+  @apply float-left min-w-full;
+}
 
-      .token.namespace {
-        opacity: 0.7;
-      }
+.code-line {
+  @apply -mx-2 block border-l-4 border-transparent pl-4 pr-4;
+}
 
-      .token.operator,
-      .token.boolean,
-      .token.number {
-        color: #c76b29;
-      }
+.code-line.inserted {
+  @apply bg-green-500 bg-opacity-20;
+}
 
-      .token.property {
-        color: #c08b30;
-      }
+.code-line.deleted {
+  @apply bg-red-500 bg-opacity-20;
+}
 
-      .token.tag {
-        color: #3d8fd1;
-      }
+.highlight-line {
+  @apply -mx-4 border-l-4 border-primary-500  bg-gray-700 bg-opacity-50;
+}
 
-      .token.string {
-        color: #22a2c9;
-      }
+.line-number::before {
+  @apply mr-4 -ml-2 inline-block w-4 text-right text-gray-400;
+  content: attr(line);
+}
 
-      .token.selector {
-        color: #6679cc;
-      }
+.dark {
+  .code-line {
+    color: #d6deeb;
+  }
+  .token.comment,
+  .token.prolog,
+  .token.cdata {
+    color: rgb(99, 119, 119);
+    font-style: italic;
+  }
 
-      .token.attr-name {
-        color: #c76b29;
-      }
+  .token.punctuation {
+    color: rgb(199, 146, 234);
+  }
 
-      .token.entity,
-      .token.url,
-      .language-css .token.string,
-      .style .token.string {
-        color: #22a2c9;
-      }
+  .namespace {
+    color: rgb(178, 204, 214);
+  }
 
-      .function,
-      .token.attr-value,
-      .token.keyword,
-      .token.control,
-      .token.directive,
-      .token.unit {
-        color: #6366f1;
-      }
+  .token.deleted {
+    color: rgba(239, 83, 80, 0.56);
+    font-style: italic;
+  }
 
-      .token.statement,
-      .token.regex,
-      .token.atrule {
-        color: #22a2c9;
-      }
+  .token.symbol,
+  .token.property {
+    color: rgb(128, 203, 196);
+  }
 
-      .token.placeholder,
-      .token.variable {
-        color: #3d8fd1;
-      }
+  .token.tag,
+  .token.operator,
+  .token.keyword {
+    color: rgb(127, 219, 202);
+  }
 
-      .token.deleted {
-        text-decoration: line-through;
-      }
+  .token.boolean {
+    color: rgb(255, 88, 116);
+  }
 
-      .token.inserted {
-        border-bottom: 1px dotted #202746;
-        text-decoration: none;
-      }
+  .token.number {
+    color: rgb(247, 140, 108);
+  }
 
-      .token.italic {
-        font-style: italic;
-      }
+  .token.constant,
+  .token.function,
+  .token.builtin,
+  .token.char {
+    color: rgb(130, 170, 255);
+  }
 
-      .token.important,
-      .token.bold {
-        font-weight: bold;
-      }
+  .token.selector,
+  .token.doctype {
+    color: rgb(199, 146, 234);
+    font-style: italic;
+  }
 
-      .token.important {
-        color: #c94922;
-      }
+  .token.attr-name,
+  .token.inserted {
+    color: rgb(173, 219, 103);
+    font-style: italic;
+  }
 
-      .token.entity {
-        cursor: help;
-      }
-    }
+  .token.string,
+  .token.url,
+  .token.entity,
+  .language-css .token.string,
+  .style .token.string {
+    color: rgb(173, 219, 103);
+  }
+
+  .token.class-name,
+  .token.atrule,
+  .token.attr-value {
+    color: rgb(255, 203, 139);
+  }
+
+  .token.regex,
+  .token.important,
+  .token.variable {
+    color: rgb(214, 222, 235);
+  }
+
+  .token.important,
+  .token.bold {
+    font-weight: bold;
+  }
+
+  .token.italic {
+    font-style: italic;
   }
 }
 
-html[data-theme='dark'],
-// CodePlayground 始终使用黑暗模式主题
-html[data-theme='light'] .code-playground {
-  pre {
-    .token-line {
-      color: #fff;
+.light {
 
-      .token.comment,
-      .token.prolog,
-      .token.cdata {
-        color: #91889b;
-      }
+  .code-line {
+    color: #403f53;
+  }
 
-      .token.punctuation {
-        color: #7b6995;
-      }
+  .token.comment,
+  .token.prolog,
+  .token.cdata {
+    color: rgb(152, 159, 177);
+    font-style: italic;
+  }
 
-      .token.builtin,
-      .token.constant,
-      .token.boolean {
-        color: #ffe261;
-      }
+  .token.punctuation {
+    color: rgb(153, 76, 195);
+  }
 
-      .token.number {
-        color: #b381c5;
-      }
+  .namespace {
+    color: rgb(12, 150, 155);
+  }
 
-      .token.important,
-      .token.atrule,
-      .token.property,
-      .token.keyword {
-        color: #40b4c4;
-      }
+  .token.deleted {
+    color: rgba(239, 83, 80, 0.56);
+    font-style: italic;
+  }
 
-      .token.doctype,
-      .token.operator,
-      .token.inserted,
-      .token.tag,
-      .token.class-name,
-      .token.symbol {
-        color: #74dfc4;
-      }
+  .token.symbol,
+  .token.operator,
+  .token.keyword,
+  .token.property {
+    color: rgb(12, 150, 155);
+  }
 
-      .token.attr-name,
-      .token.function,
-      .token.deleted,
-      .token.selector {
-        color: #eb64b9;
-      }
+  .token.tag {
+    color: rgb(153, 76, 195);
+  }
 
-      .token.attr-value,
-      .token.regex,
-      .token.char,
-      .token.string {
-        color: #b4dce7;
-      }
+  .token.boolean {
+    color: rgb(188, 84, 84);
+  }
 
-      .token.entity,
-      .token.url,
-      .token.variable {
-        color: #ffffff;
-      }
+  .token.number {
+    color: rgb(170, 9, 130);
+  }
 
-      /* The following rules are pretty similar across themes, but feel free to adjust them */
-      .token.bold {
-        font-weight: bold;
-      }
+  .token.constant,
+  .token.builtin,
+  .token.string,
+  .token.url,
+  .token.entity,
+  .language-css .token.string,
+  .style .token.string,
+  .token.char {
+    color: rgb(72, 118, 214);
+  }
 
-      .token.italic {
-        font-style: italic;
-      }
+  .token.selector,
+  .token.function,
+  .token.doctype {
+    color: rgb(153, 76, 195);
+    font-style: italic;
+  }
 
-      .token.entity {
-        cursor: help;
-      }
+  .token.attr-name,
+  .token.inserted {
+    color: rgb(72, 118, 214);
+    font-style: italic;
+  }
 
-      .token.namespace {
-        opacity: 0.7;
-      }
-    }
+  .token.class-name,
+  .token.atrule,
+  .token.attr-value {
+    color: rgb(17, 17, 17);
+  }
+
+  .token.regex,
+  .token.important,
+  .token.variable {
+    color: rgb(201, 103, 101);
+  }
+
+  .token.important,
+  .token.bold {
+    font-weight: bold;
+  }
+
+  .token.italic {
+    font-style: italic;
   }
 }

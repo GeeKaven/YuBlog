@@ -2,6 +2,7 @@ import { bundleMDX } from 'mdx-bundler'
 import remarkGfm from 'remark-gfm'
 import remarkDirective from 'remark-directive'
 import rehypeSlug from 'rehype-slug'
+import rehypePrismPlus from 'rehype-prism-plus'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import path from 'path'
 import dayjs from 'dayjs'
@@ -30,7 +31,8 @@ export async function getStaticProps({ params }) {
       options.rehypePlugins = [
         ...(options.rehypePlugins ?? []),
         rehypeSlug,
-        rehypeAutolinkHeadings
+        rehypeAutolinkHeadings,
+        [rehypePrismPlus, { ignoreMissing: true }],
       ]
 
       return options

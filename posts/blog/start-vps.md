@@ -55,7 +55,7 @@ ssh user@host 'mkdir -p .ssh && cat >> .ssh/authorized_keys' < ~/.ssh/id_rsa.pub
 sudo systemctl restart sshd.service
 ```
 本地 SSH 配置文件
-```
+```bash
 Host server-alias # ssh 登录设置的主机别名
 HostName ip_addr # 服务器 ip 地址
 Port port # ssh 端口

@@ -53,9 +53,11 @@ body {
   }
 }
 
-.dark .note {
+.dark  {
+  .note {
     @apply bg-slate-600/20;
     &::before {
       @apply bg-gray-900;
     }
   }
+}

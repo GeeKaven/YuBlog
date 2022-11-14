@@ -12,7 +12,7 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            color: theme('colors.gray.700'),
+            color: theme('colors.gray.900'),
             a: {
               color: theme('colors.primary.500'),
               '&:hover': {
@@ -38,7 +38,7 @@ module.exports = {
               color: theme('colors.gray.900'),
             },
             pre: {
-              backgroundColor: theme('colors.gray.800'),
+              backgroundColor: theme('colors.slate.100'),
             },
             code: {
               color: theme('colors.pink.500'),
@@ -66,10 +66,10 @@ module.exports = {
             hr: { borderColor: theme('colors.gray.200') },
             'ol li::marker': {
               fontWeight: '600',
-              color: theme('colors.gray.500'),
+              color: theme('colors.primary.500'),
             },
             'ul li::marker': {
-              backgroundColor: theme('colors.gray.500'),
+              color: theme('colors.primary.500'),
             },
             strong: { 
               backgroundColor: 'inherit',
@@ -120,15 +120,16 @@ module.exports = {
             hr: { borderColor: theme('colors.gray.700') },
             'ol li::marker': {
               fontWeight: '600',
-              color: theme('colors.gray.400'),
+              color: theme('colors.primary.500'),
             },
             'ul li::marker': {
-              backgroundColor: theme('colors.gray.400'),
+              color: theme('colors.primary.500'),
             },
             strong: { 
               color: theme('colors.gray.100') 
             },
             thead: {
+              borderBottomColor: theme('colors.gray.700'),
               th: {
                 color: theme('colors.gray.100'),
               },

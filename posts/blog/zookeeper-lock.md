@@ -34,7 +34,7 @@ Zookeeper 是一种分布式应用程序协调服务，用于在分布式环境�
 
 Zookeeper 的数据模型很像数据结构中的树，也很像文件系统中的目录。Zookeeper 的数据存储基于节点，这种节点叫做 Znode. Znode 的引用方式是路径引用，类似于文件路径：
 
-```
+```sh
 /server1/u1
 /server2/k1
 ```
