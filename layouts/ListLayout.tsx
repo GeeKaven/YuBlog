@@ -31,7 +31,7 @@ const ListLayout = ({
             {(index === 0 ||
               dayjs(displayPosts[index - 1].date).year() !==
                 dayjs(post.date).year()) && (
-              <h2 className="font-medium text-2xl sm:text-3xl before:content-['#_'] before:text-primary">
+              <h2 className="font-medium text-2xl sm:text-3xl before:content-['#_'] before:text-primary-500">
                 {dayjs(post.date).year()}
               </h2>
             )}

@@ -1,5 +1,5 @@
 import '../styles/index.scss'
-import Layout from '@/components/layout'
+import Layout from '@/components/Layout'
 import { ThemeProvider } from 'next-themes'
 import { AppProps } from 'next/app'
 import Head from 'next/head'

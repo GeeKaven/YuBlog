@@ -4,12 +4,25 @@ import ListLayout from '@/layouts/ListLayout'
 
 const POSTS_PER_PAGE = Config.POSTS_PER_PAGE
 
-export const ALL_FOLDER = ['blog', 'remark', 'archives']
+export const POST_FOLDER = ['blog', 'remark']
+export const ARCHIVE_FOLDER = 'archives'
+export const LIST_TITLE = {
+  blog: '文章',
+  remark: '随笔',
+  archives: '归档'
+}
 
 export async function getStaticProps({ params }) {
   const { folder } = params
 
-  const posts = await getAllPostFrontMatter([folder])
+  const queryFolder = []
+  if (folder === 'archives') {
+    queryFolder.push(...POST_FOLDER)
+  } else{
+    queryFolder.push(folder)
+  }
+
+  const posts = await getAllPostFrontMatter(queryFolder)
   const displayPosts = posts.slice(0, POSTS_PER_PAGE)
 
   const pagination: PaginationType = {
@@ -23,14 +36,14 @@ export async function getStaticProps({ params }) {
       posts,
       displayPosts,
       pagination,
-      title: folder,
+      title: LIST_TITLE[folder],
     },
   }
 }
 
 export function getStaticPaths() {
   return {
-    paths: ALL_FOLDER.map((folder) => ({ params: { folder } })),
+    paths: [...POST_FOLDER, ARCHIVE_FOLDER].map((folder) => ({ params: { folder } })),
     fallback: false,
   }
 }
