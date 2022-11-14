@@ -39,7 +39,7 @@ const ListLayout = ({
               <h3 className='font-medium text-lg sm:text-xl'>
                 <Link
                   href={`${post.slug}`}
-                  className='hover:text-primary'
+                  className='hover:text-primary-500'
                 >
                   {post.title}
                 </Link>

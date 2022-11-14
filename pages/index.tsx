@@ -19,7 +19,7 @@ const List = ({ title, list, folder }: { title: string; list: PostFrontmatter[],
         list.map((post, index) => (
           <article key={index} className='my-8'>
             <h3 className='font-medium text-lg sm:text-xl'>
-              <Link href={`${post.slug}`} className='hover:text-primary'>
+              <Link href={`${post.slug}`} className='hover:text-primary-500'>
                 {post.title}
               </Link>
             </h3>
@@ -43,7 +43,7 @@ const List = ({ title, list, folder }: { title: string; list: PostFrontmatter[],
 
 export default function Index({ blog, remark }: IndexProps) {
   return (
-    <div className='min-h-screen'>
+    <div className=''>
       <List title={blog.title} list={blog.list} folder='blog' />
       <List title={remark.title} list={remark.list} folder='remark' />
     </div>

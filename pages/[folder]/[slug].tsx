@@ -30,10 +30,7 @@ export async function getStaticProps({ params }) {
       options.rehypePlugins = [
         ...(options.rehypePlugins ?? []),
         rehypeSlug,
-        [
-          rehypeAutolinkHeadings,
-          { behavior: 'wrap', properties: { class: 'anchor' } },
-        ],
+        rehypeAutolinkHeadings
       ]
 
       return options
@@ -47,8 +44,6 @@ export async function getStaticProps({ params }) {
   })
 
   const { prev, next } = await getAdjacentPost(slug, folder)
-
-  console.log(prev, next)
 
   return {
     props: {

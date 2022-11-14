@@ -12,9 +12,7 @@ type PostLayoutProps = {
 }
 
 const components = {
-  li: ListItem,
-  ol: OrderedList,
-  ul: UnorderedList,
+  
 }
 
 const PostLayout = (props: PostLayoutProps) => {
@@ -25,7 +23,7 @@ const PostLayout = (props: PostLayoutProps) => {
       <h1 className='mt-14 sm:mt-16 text-2xl sm:text-4xl text-black dark:text-white !leading-snug tracking-tight font-medium'>
         {frontmatter.title}
       </h1>
-      <article className='markdown w-full mt-10 max-w-none'>
+      <article className='prose prose-lg dark:prose-dark w-full mt-10 max-w-none'>
         <MDXComponent components={components} />
       </article>
     </div>
