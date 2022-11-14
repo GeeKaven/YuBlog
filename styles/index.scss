@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.task-list-item::before {
+  @apply hidden;
+}
+
+.task-list-item {
+  @apply list-none;
+}
+
+.footnotes {
+  @apply pt-8 mt-12 border-t border-gray-200 dark:border-gray-700;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue,
+    helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+  font-size: 16px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  @apply text-zinc-800 bg-white dark:text-gray-100 dark:bg-gray-900 antialiased;
+}
+
+.note {
+  @apply relative px-8 py-px my-12 sm:rounded-[3px] border-l-[3px];
+  //p { @apply m-0; }
+  ul,
+  ol {
+    @apply pl-0;
+  }
+  &::before {
+    @apply absolute bg-white rounded-full -left-[26.5px] -top-[25px] w-[50px] h-[50px];
+  }
+  &.tip {
+    @apply bg-blue-300/30 border-blue-600;
+    &::before {
+      content: url('/tip.svg');
+    }
+  }
+  &.warning {
+    @apply bg-yellow-300/30 border-yellow-400;
+    &::before {
+      content: url('/warning.svg');
+    }
+  }
+  &.danger {
+    @apply bg-rose-300/30 border-rose-500;
+    &::before {
+      content: url('/danger.svg');
+    }
+  }
+}
+
+.dark .note {
+    @apply bg-slate-600/20;
+    &::before {
+      @apply bg-gray-900;
+    }
+  }
