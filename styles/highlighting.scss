@@ -13,9 +13,6 @@
 .remark-code-title + div > pre {
   @apply mt-0 rounded-t-none;
 }
-pre[class*="language-"] {
-  @apply -mx-8;
-}
 
 /* Code block styles */
 .code-highlight {

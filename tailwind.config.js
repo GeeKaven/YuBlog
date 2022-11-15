@@ -38,6 +38,8 @@ module.exports = {
               color: theme('colors.gray.900'),
             },
             pre: {
+              marginLeft: '-2rem',
+              marginRight: '-2rem',
               backgroundColor: theme('colors.slate.100'),
             },
             code: {
