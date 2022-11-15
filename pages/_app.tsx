@@ -1,6 +1,6 @@
 import '../styles/index.scss'
 import '../styles/highlighting.scss'
-import LayoutWrapper from '@/layouts/LayoutWrapper'
+import LayoutWrapper from '@/components/Layout'
 import { ThemeProvider } from 'next-themes'
 import { AppProps } from 'next/app'
 import NextNProgress from 'nextjs-progressbar'
