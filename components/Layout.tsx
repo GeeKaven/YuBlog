@@ -1,12 +1,11 @@
 import Link from 'next/link'
 import { ReactNode } from 'react'
-import Container from './container'
-import Footer from './footer'
+import Container from './Container'
+import Footer from './Footer'
 import HeaderNav from '@/data/headerNav'
 import SiteMeta from '@/data/siteMeta'
-import Logo from '@/data/logo.svg'
-import MobileNav from './MobileNav'
-import ThemeSwitch from './ThemeSwitch'
+import MobileNav from '@/components/MobileNav'
+import ThemeSwitch from '@/components/ThemeSwitch'
 
 type LayoutProps = {
   children?: ReactNode
@@ -15,15 +14,16 @@ type LayoutProps = {
 const Layout = ({ children }: LayoutProps) => {
   return (
     <Container>
-      <div className='flex flex-col justify-between h-screen '>
-        <header className='flex items-center justify-between py-5'>
+      <div className='flex flex-col justify-between h-screen'>
+        <header className='flex items-center justify-between pt-8 pb-4'>
           <Link href='/' aria-label={SiteMeta.headerTitle}>
             <div className='flex items-center justify-between'>
               <div className='mr-3'>
-                <Logo />
-              </div>
-              <div className='hidden h-6 text-2xl font-semibold sm:block'>
-                {SiteMeta.headerTitle}
+                <img
+                  className='sm:inline-block h-12 mr-4 cursor-pointer dark:invert'
+                  src='logo.svg'
+                  alt='logo'
+                />
               </div>
             </div>
           </Link>
@@ -33,7 +33,7 @@ const Layout = ({ children }: LayoutProps) => {
                 <Link
                   key={nav.href}
                   href={nav.href}
-                  className='font-medium text-lg py-2 px-4 rounded-lg leading-loose transition hover:bg-slate-200/50 dark:hover:bg-zinc-800/50'
+                  className='font-medium text-lg mx-1 py-2 px-4 rounded-lg leading-loose transition hover:bg-slate-200/50 dark:hover:bg-zinc-800/50'
                 >
                   {nav.title}
                 </Link>

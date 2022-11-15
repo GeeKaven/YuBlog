@@ -1,18 +1,27 @@
 import dayjs from 'dayjs'
-import Config from '@/data/config'
 import { getAllPostFrontMatter } from '@/lib/utils/post'
 import Link from 'next/link'
-
-const POSTS_PER_PAGE = Config.POSTS_PER_PAGE
+import SiteMeta from '@/data/siteMeta'
+import { PageSEO } from '@/components/SEO'
+import Hero from '@/components/Hero'
+import { POSTS_PER_PAGE } from '@/layouts/ListLayout'
 
 type IndexProps = {
   blog: { list: PostFrontmatter[]; title: string }
   remark: { list: PostFrontmatter[]; title: string }
 }
 
-const List = ({ title, list, folder }: { title: string; list: PostFrontmatter[], folder: string }) => (
+const List = ({
+  title,
+  list,
+  folder,
+}: {
+  title: string
+  list: PostFrontmatter[]
+  folder: string
+}) => (
   <div className='flex-1 mb-10'>
-    <h1 className='text-3xl'>{title}</h1>
+    <h1 className='text-3xl font-bold'>{title}</h1>
     <div className='flex-1'>
       {list &&
         list.length > 0 &&
@@ -43,10 +52,14 @@ const List = ({ title, list, folder }: { title: string; list: PostFrontmatter[],
 
 export default function Index({ blog, remark }: IndexProps) {
   return (
-    <div className=''>
-      <List title={blog.title} list={blog.list} folder='blog' />
-      <List title={remark.title} list={remark.list} folder='remark' />
-    </div>
+    <>
+      <PageSEO title={SiteMeta.title} description={SiteMeta.description} />
+      <Hero />
+      <div className='flex flex-col'>
+        <List title={blog.title} list={blog.list} folder='blog' />
+        <List title={remark.title} list={remark.list} folder='remark' />
+      </div>
+    </>
   )
 }
 

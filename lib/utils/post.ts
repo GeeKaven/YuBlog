@@ -1,7 +1,15 @@
 import glob from 'fast-glob'
 import matter from 'gray-matter'
 import dayjs from 'dayjs'
-import fs from 'fs'
+import { readFileSync } from 'fs'
+
+export const POST_FOLDER = ['blog', 'remark']
+export const ARCHIVE_FOLDER = 'archives'
+export const LIST_TITLE = {
+  blog: '文章',
+  remark: '随笔',
+  archives: '归档'
+}
 
 export async function getAllPostPaths(folder: string) {
   return await glob(`./posts/${folder}/**/*.md`)
@@ -27,8 +35,8 @@ export async function getAllPostFrontMatter(
     const files = await getAllPostPaths(folder.toString())
 
     const folderFrontMatter = await Promise.all(
-      files.map(async (file) => {
-        const source = fs.readFileSync(file, 'utf-8')
+      files.map((file) => {
+        const source = readFileSync(file, 'utf-8')
         const frontMatter = matter(source).data as PostFrontmatter
         if (frontMatter.draft !== true) {
           return {

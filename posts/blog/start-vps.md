@@ -1,6 +1,7 @@
 ---
 title: "VPS 开始必做的事"
 date: 2021-02-04 21:53:38+08:00
+tags: ['VPS']
 ---
 
 记录下拿到新 VPS 后需要做的一些操作
@@ -55,7 +56,7 @@ ssh user@host 'mkdir -p .ssh && cat >> .ssh/authorized_keys' < ~/.ssh/id_rsa.pub
 sudo systemctl restart sshd.service
 ```
 本地 SSH 配置文件
-```
+```bash
 Host server-alias # ssh 登录设置的主机别名
 HostName ip_addr # 服务器 ip 地址
 Port port # ssh 端口

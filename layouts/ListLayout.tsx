@@ -1,25 +1,27 @@
+import { PageSEO } from '@/components/SEO'
+import SiteMeta from '@/data/siteMeta'
 import dayjs from 'dayjs'
 import Link from 'next/link'
-import Pagination from '../components/Pagination'
+import Pagination from '@/components/Pagination'
+
+export const POSTS_PER_PAGE = 5
 
 type ListLayoutProps = {
   posts: PostFrontmatter[]
   displayPosts: PostFrontmatter[]
   pagination: PaginationType
   title: string
-  path: string
-  postPath: string
-  pagePath: string
 }
 
 const ListLayout = ({
   posts,
-  displayPosts,
+  displayPosts = [],
   pagination,
   title,
 }: ListLayoutProps) => {
   return (
     <>
+      <PageSEO title={`${title} - ${SiteMeta.author}`} description={SiteMeta.description} />
       <div>
         <h1 className='text-4xl mt-14 mb-10'>
           {title}
@@ -31,7 +33,7 @@ const ListLayout = ({
             {(index === 0 ||
               dayjs(displayPosts[index - 1].date).year() !==
                 dayjs(post.date).year()) && (
-              <h2 className="font-medium text-2xl sm:text-3xl before:content-['#_'] before:text-primary">
+              <h2 className="font-medium text-2xl sm:text-3xl before:content-['#_'] before:text-primary-500">
                 {dayjs(post.date).year()}
               </h2>
             )}
