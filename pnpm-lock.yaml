@@ -15,6 +15,7 @@ specifiers:
   eslint: ^8.23.1
   eslint-plugin-react: ^7.31.8
   fast-glob: ^3.2.12
+  github-slugger: ^2.0.0
   gray-matter: ^4.0.3
   hastscript: ^7.1.0
   mdx-bundler: ^9.0.1
@@ -59,6 +60,7 @@ devDependencies:
   eslint: 8.27.0
   eslint-plugin-react: 7.31.10_eslint@8.27.0
   fast-glob: 3.2.12
+  github-slugger: 2.0.0
   gray-matter: 4.0.3
   hastscript: 7.1.0
   postcss: 8.4.19

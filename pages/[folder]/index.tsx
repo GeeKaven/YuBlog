@@ -1,16 +1,8 @@
 import Config from '@/data/config'
-import { getAllPostFrontMatter } from '@/lib/utils/post'
+import { ARCHIVE_FOLDER, getAllPostFrontMatter, LIST_TITLE, POST_FOLDER } from '@/lib/utils/post'
 import ListLayout from '@/layouts/ListLayout'
 
 const POSTS_PER_PAGE = Config.POSTS_PER_PAGE
-
-export const POST_FOLDER = ['blog', 'remark']
-export const ARCHIVE_FOLDER = 'archives'
-export const LIST_TITLE = {
-  blog: '文章',
-  remark: '随笔',
-  archives: '归档'
-}
 
 export async function getStaticProps({ params }) {
   const { folder } = params

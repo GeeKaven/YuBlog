@@ -7,14 +7,11 @@ type ListLayoutProps = {
   displayPosts: PostFrontmatter[]
   pagination: PaginationType
   title: string
-  path: string
-  postPath: string
-  pagePath: string
 }
 
 const ListLayout = ({
   posts,
-  displayPosts,
+  displayPosts = [],
   pagination,
   title,
 }: ListLayoutProps) => {
