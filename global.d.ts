@@ -1,30 +1,15 @@
-type PostInfoType = {
-  title: string
-  date: string
-  year: string
-  slug: string
-}
-
-type PostType = {
-  permalink: string
-  title: string
-  date: string
-  content: string
-  raw: string
-  updated: string
-  tags: string[]
-  toc: string
-  prev?: { title: string; url: string }
-  next?: { title: string; url: string }
-}
-
 type PostFrontmatter = {
   title: string
   date: number    //创建日期
+  summary: string
+  lastModified: string //最后更新时间
   tags?: string[]
   toc?: boolean // 导航是否可见
   draft?: boolean
   slug: string
+  url?: string
+  heroImage?: string //顶部图片
+  heroImageSize: string //顶部图片长宽比
 }
 
 type PaginationType = {

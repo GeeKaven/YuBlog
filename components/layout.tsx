@@ -16,7 +16,7 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <Container>
       <div className='flex flex-col justify-between h-screen'>
-        <header className='flex items-center justify-between py-10'>
+        <header className='flex items-center justify-between pt-8 pb-4'>
           <Link href='/' aria-label={SiteMeta.headerTitle}>
             <div className='flex items-center justify-between'>
               <div className='mr-3'>

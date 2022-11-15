@@ -1,10 +1,12 @@
 import React, { useMemo } from 'react'
 import { getMDXComponent } from 'mdx-bundler/client'
-import ListItem from '../components/list/ListItem'
-import OrderedList from '../components/list/OrderedList'
-import UnorderedList from '../components/list/UnorderedList'
+import ListItem from '../components/ListItem'
 import Link from 'next/link'
-import { HiArrowSmLeft, HiArrowSmRight } from 'react-icons/hi'
+import { HiArrowSmLeft, HiArrowSmRight, HiOutlineClock } from 'react-icons/hi'
+import { slug } from 'github-slugger'
+import dayjs from 'dayjs'
+import { BlogSEO } from '@/components/SEO'
+import SiteMeta from '@/data/siteMeta'
 
 type PostLayoutProps = {
   code: string
@@ -13,17 +15,45 @@ type PostLayoutProps = {
   next: { link: string; title: string }
 }
 
-const components = {}
+const components = {
+  li: ListItem
+}
 
 const PostLayout = (props: PostLayoutProps) => {
   const { code, frontmatter, prev, next } = props
   const MDXComponent = useMemo(() => getMDXComponent(code), [code])
+
   return (
-    <div>
-      <h1 className='mt-14 sm:mt-16 text-2xl sm:text-4xl text-black dark:text-white !leading-snug tracking-tight font-medium'>
+    <div className='break-all'>
+      <BlogSEO
+        url={`${SiteMeta.siteUrl}/${slug}`}
+        {...frontmatter}
+      />
+      <h1 className='mt-12 sm:mt-14 text-2xl sm:text-4xl text-black dark:text-white !leading-snug tracking-tight font-medium'>
         {frontmatter.title}
       </h1>
+      {/*发布时间 */}
+      <div className='text-gray-600 dark:text-gray-400 flex items-center text-sm mt-4'>
+        <HiOutlineClock className='mr-1 text-lg'/>
+        {`发布时间：`}
+        {dayjs(frontmatter.date).format('LL')}
+      </div>
+      {/*标签 */}
+      {frontmatter.tags && frontmatter.tags.length > 0 && (
+        <div className='flex items-center flex-wrap m-auto mt-6 sm:mt-12 text-sm gap-2 sm:gap-3'>
+          {frontmatter.tags.map((tag) => (
+            <Link
+              key={tag}
+              href={`/tags/${slug(tag)}`}
+              className='bg-pink-500/10 text-pink-500 hover:text-pink-600 px-2 py-1 rounded font-bold transition'
+            >
+              {slug(tag)}
+            </Link>
+          ))}
+        </div>
+      )}
       <div className='flex w-full'>
+        {/* 文章详情 */}
         <article className='prose prose-lg dark:prose-dark w-full mt-10 max-w-none'>
           <MDXComponent components={components} />
         </article>

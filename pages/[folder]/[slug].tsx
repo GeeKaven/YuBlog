@@ -52,6 +52,7 @@ export async function getStaticProps({ params }) {
       code,
       frontmatter: {
         ...frontmatter,
+        slug: `${folder}/${slug}`,
         date: dayjs(frontmatter.date).valueOf(),
       },
       prev: prev

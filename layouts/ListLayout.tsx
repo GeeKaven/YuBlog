@@ -1,3 +1,5 @@
+import { PageSEO } from '@/components/SEO'
+import SiteMeta from '@/data/siteMeta'
 import dayjs from 'dayjs'
 import Link from 'next/link'
 import Pagination from '../components/Pagination'
@@ -17,6 +19,7 @@ const ListLayout = ({
 }: ListLayoutProps) => {
   return (
     <>
+      <PageSEO title={`${title} - ${SiteMeta.author}`} description={SiteMeta.description} />
       <div>
         <h1 className='text-4xl mt-14 mb-10'>
           {title}
