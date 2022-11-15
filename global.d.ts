@@ -7,9 +7,10 @@ type PostFrontmatter = {
   toc?: boolean // 导航是否可见
   draft?: boolean
   slug: string
-  url?: string
   heroImage?: string //顶部图片
   heroImageSize: string //顶部图片长宽比
+  url?: string
+  formatDate: string //格式化后的日期
 }
 
 type PaginationType = {

@@ -33,7 +33,7 @@ const List = ({
               </Link>
             </h3>
             <span className='font-medium inline-block text-sm mt-2 opacity-50'>
-              {dayjs(post.date).format('LL')}
+              {post.formatDate}
             </span>
           </article>
         ))}

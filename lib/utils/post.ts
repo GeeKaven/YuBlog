@@ -43,6 +43,7 @@ export async function getAllPostFrontMatter(
             ...frontMatter,
             slug: file.replace(/^\.\/posts|\.(mdx|md)$/g, ''),
             date: dayjs(frontMatter.date).valueOf(),
+            formatDate: dayjs(frontMatter.date).format('LL')
           }
         }
       })
