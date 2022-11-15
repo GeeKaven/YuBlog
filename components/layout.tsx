@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { ReactNode } from 'react'
-import Container from './Container'
+import SectionContainer from './SectionContainer'
 import Footer from './Footer'
 import HeaderNav from '@/data/headerNav'
 import SiteMeta from '@/data/siteMeta'
@@ -13,7 +13,7 @@ type LayoutProps = {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <Container>
+    <SectionContainer>
       <div className='flex flex-col justify-between h-screen'>
         <header className='flex items-center justify-between pt-8 pb-4'>
           <Link href='/' aria-label={SiteMeta.headerTitle}>
@@ -47,7 +47,7 @@ const Layout = ({ children }: LayoutProps) => {
         <main className='mb-auto'>{children}</main>
         <Footer />
       </div>
-    </Container>
+    </SectionContainer>
   )
 }
 
