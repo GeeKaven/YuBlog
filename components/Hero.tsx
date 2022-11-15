@@ -1,3 +1,4 @@
+import React from 'react'
 import SiteMeta from '@/data/siteMeta'
 import Link from 'next/link'
 
