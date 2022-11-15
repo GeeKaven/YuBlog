@@ -78,10 +78,44 @@ module.exports = {
               color: theme('colors.gray.600') 
             },
             blockquote: {
-              color: theme('colors.gray.900'),
-              borderLeftColor: theme('colors.gray.200'),
+              position: 'relative',
+              color: theme('colors.slate.500'),
+              border: 'none',
+              'p:first-child::before, p:last-child::after': {
+                content: 'none'
+              }
+            },
+            'blockquote::before': {
+              content: "'“'",
+              left: '-0.75rem',
+              top: '-1.75rem',
+              fontWeight: '700',
+              fontSize: '6rem',
+              lineHeight: '1',
+              position: 'absolute',
+              opacity: 0.25,
+              fontFamily: "'Times New Roman', serif",
+            },
+            'blockquote::after': {
+              content: "'”'",
+              right: '0',
+              top: '-1.75rem',
+              fontWeight: '700',
+              fontSize: '6rem',
+              lineHeight: '1',
+              position: 'absolute',
+              opacity: 0.25,
+              fontFamily: "'Times New Roman', serif",
             },
           },
+        },
+        lg: {
+          css: {
+            blockquote: {
+              paddingLeft: '2rem',
+              paddingRight: '2rem',
+            }
+          }
         },
         dark: {
           css: {
@@ -142,8 +176,7 @@ module.exports = {
               },
             },
             blockquote: {
-              color: theme('colors.gray.100'),
-              borderLeftColor: theme('colors.gray.700'),
+              color: theme('colors.slate.400'),
             },
           },
         },
