@@ -1,9 +1,6 @@
-import Config from '@/data/config'
 import { getAllPostFrontMatter } from '@/lib/utils/post'
-import ListLayout from '@/layouts/ListLayout'
+import ListLayout, { POSTS_PER_PAGE } from '@/layouts/ListLayout'
 import { POST_FOLDER, ARCHIVE_FOLDER, LIST_TITLE } from '@/lib/utils/post'
-
-const POSTS_PER_PAGE = Config.POSTS_PER_PAGE
 
 export async function getStaticProps({ params }) {
   const { folder, page } = params

@@ -4,6 +4,8 @@ import dayjs from 'dayjs'
 import Link from 'next/link'
 import Pagination from '../components/Pagination'
 
+export const POSTS_PER_PAGE = 5
+
 type ListLayoutProps = {
   posts: PostFrontmatter[]
   displayPosts: PostFrontmatter[]

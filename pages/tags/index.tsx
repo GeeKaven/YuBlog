@@ -10,7 +10,6 @@ type TagsProps = {
 
 export async function getStaticProps() {
   const tags = await getAllTags()
-  console.log(tags)
 
   return { props: { tags } }
 }

@@ -12,7 +12,6 @@ export const LIST_TITLE = {
 }
 
 export async function getAllPostPaths(folder: string) {
-  console.log(folder)
   return await glob(`./posts/${folder}/**/*.md`)
 }
 

@@ -1,28 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  preserveAspectRatio="xMidYMid meet"
-  viewBox="344.5639097744361 330.27819548872174 111.73684210526318 91.21804511278197" width="53.87" height="43.61">
-  <defs>
-    <path d="M453.3 331.28L453.3 359.85L388.64 418.5L388.64 388.42L453.3 331.28Z" id="aFZf6T5ED"></path>
-    <linearGradient id="gradientb2ThqnP5Op" gradientUnits="userSpaceOnUse" x1="420.97" y1="331.28" x2="420.97"
-      y2="418.5">
-      <stop style="stop-color: #06b6d4;stop-opacity: 1" offset="0%"></stop>
-      <stop style="stop-color: #67e8f9;stop-opacity: 1" offset="100%"></stop>
-    </linearGradient>
-    <path d="M410.23 331.28L410.23 359.85L345.56 418.5L345.56 388.42L410.23 331.28Z" id="a9fehgwfM"></path>
-    <linearGradient id="gradientk1wNV9Ostb" gradientUnits="userSpaceOnUse" x1="377.89" y1="331.28" x2="377.89"
-      y2="418.5">
-      <stop style="stop-color: #06b6d4;stop-opacity: 1" offset="0%"></stop>
-      <stop style="stop-color: #67e8f9;stop-opacity: 1" offset="100%"></stop>
-    </linearGradient>
-  </defs>
-  <g>
-    <g>
-      <use xlink:href="#aFZf6T5ED" opacity="1" fill="url(#gradientb2ThqnP5Op)"></use>
-    </g>
-    <g>
-      <use xlink:href="#a9fehgwfM" opacity="1" fill="url(#gradientk1wNV9Ostb)"></use>
-    </g>
-  </g>
+<svg width="201" height="202" viewBox="0 0 201 202" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M134.505 47.7856C117.841 47.7856 104.367 37.0544 104.367 23.8613C104.367 10.6681 117.921 0 134.585 0C151.248 0 164.723 10.7313 164.723 23.9244C164.723 37.1175 151.248 47.7856 134.505 47.7856ZM0 190.511L85.1519 61.105L63.864 52.3306L46.403 78.8431L24.0785 69.6269L53.1004 25.5025L157.228 68.3644L178.676 35.7919L201 45.0081L167.992 95.1925L124.299 77.265L102.055 111.037L148.617 130.101L116.964 178.202L88.979 166.713L106.041 140.769L76.3019 128.523L27.9853 202L0 190.511Z" fill="black"/>
 </svg>
