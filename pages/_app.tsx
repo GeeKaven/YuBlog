@@ -1,6 +1,6 @@
 import '../styles/index.scss'
 import '../styles/highlighting.scss'
-import Layout from '@/components/Layout'
+import LayoutWrapper from '@/layouts/LayoutWrapper'
 import { ThemeProvider } from 'next-themes'
 import { AppProps } from 'next/app'
 import NextNProgress from 'nextjs-progressbar'
@@ -39,9 +39,9 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
           <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
         </Head>
-        <Layout>
+        <LayoutWrapper>
           <Component {...pageProps} />
-        </Layout>
+        </LayoutWrapper>
       </ThemeProvider>
     </>
   )

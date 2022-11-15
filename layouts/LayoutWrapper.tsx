@@ -1,11 +1,11 @@
 import Link from 'next/link'
 import { ReactNode } from 'react'
-import SectionContainer from './SectionContainer'
-import Footer from './Footer'
+import SectionContainer from '@/components/SectionContainer'
+import Footer from '@/components/Footer'
 import HeaderNav from '@/data/headerNav'
 import SiteMeta from '@/data/siteMeta'
-import MobileNav from './MobileNav'
-import ThemeSwitch from './ThemeSwitch'
+import MobileNav from '@/components/MobileNav'
+import ThemeSwitch from '@/components/ThemeSwitch'
 
 type LayoutProps = {
   children?: ReactNode

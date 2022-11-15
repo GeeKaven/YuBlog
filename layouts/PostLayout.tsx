@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
 import { getMDXComponent } from 'mdx-bundler/client'
-import ListItem from '../components/ListItem'
+import ListItem from '@/components/ListItem'
 import Link from 'next/link'
 import { HiArrowSmLeft, HiArrowSmRight, HiOutlineClock } from 'react-icons/hi'
 import { slug } from 'github-slugger'

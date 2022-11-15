@@ -2,7 +2,7 @@ import { PageSEO } from '@/components/SEO'
 import SiteMeta from '@/data/siteMeta'
 import dayjs from 'dayjs'
 import Link from 'next/link'
-import Pagination from '../components/Pagination'
+import Pagination from '@/components/Pagination'
 
 export const POSTS_PER_PAGE = 5
 
