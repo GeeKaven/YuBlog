@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { ReactNode } from 'react'
 import Container from './Container'
 import Footer from './Footer'
@@ -16,12 +17,14 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <Container>
       <div className='flex flex-col justify-between h-screen'>
-        <header className='flex items-center justify-between pt-8 pb-4'>
+        <header className='flex items-center justify-between py-4'>
           <Link href='/' aria-label={SiteMeta.headerTitle}>
             <div className='flex items-center justify-between'>
               <div className='mr-3'>
-                <img
-                  className='sm:inline-block h-12 mr-4 cursor-pointer dark:invert'
+                <Image
+                  className='sm:inline-block mr-4 cursor-pointer dark:invert'
+                  width={48}
+                  height={48}
                   src='/logo.svg'
                   alt='logo'
                 />
