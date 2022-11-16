@@ -1,6 +1,7 @@
 import React from 'react'
 import SiteMeta from '@/data/siteMeta'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const Hero = () => {
   return (
@@ -8,10 +9,12 @@ const Hero = () => {
       {/* 头像 */}
       {SiteMeta.avatar && (
         <div className='relative'>
-          <img
+          <Image
             src={SiteMeta.avatar}
             alt='avatar'
-            className='w-24 h-24 object-cover rounded-full shadow-lg'
+            width={96}
+            height={96}
+            className='object-cover rounded-full shadow-lg'
           />
           <div className='absolute inset-0 ring-1 ring-inset rounded-full ring-black/10 dark:ring-white/10' />
         </div>

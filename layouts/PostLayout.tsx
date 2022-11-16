@@ -54,7 +54,7 @@ const PostLayout = (props: PostLayoutProps) => {
       )}
       <div className='flex w-full'>
         {/* 文章详情 */}
-        <article className='prose prose-lg dark:prose-dark w-full mt-10 max-w-none'>
+        <article className='prose prose-base sm:prose-lg dark:prose-dark w-full mt-10 max-w-none'>
           <MDXComponent components={components} />
         </article>
       </div>
