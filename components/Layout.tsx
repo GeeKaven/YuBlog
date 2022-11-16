@@ -6,6 +6,7 @@ import HeaderNav from '@/data/headerNav'
 import SiteMeta from '@/data/siteMeta'
 import MobileNav from '@/components/MobileNav'
 import ThemeSwitch from '@/components/ThemeSwitch'
+import BackToTop from './BackToTop'
 
 type LayoutProps = {
   children?: ReactNode
@@ -21,7 +22,7 @@ const Layout = ({ children }: LayoutProps) => {
               <div className='mr-3'>
                 <img
                   className='sm:inline-block h-12 mr-4 cursor-pointer dark:invert'
-                  src='logo.svg'
+                  src='/logo.svg'
                   alt='logo'
                 />
               </div>
@@ -46,6 +47,7 @@ const Layout = ({ children }: LayoutProps) => {
         </header>
         <main className='mb-auto'>{children}</main>
         <Footer />
+        <BackToTop />
       </div>
     </Container>
   )
