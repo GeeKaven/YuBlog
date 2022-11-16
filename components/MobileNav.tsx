@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import headerNavLinks from '@/data/headerNav'
 import Link from 'next/link'
 

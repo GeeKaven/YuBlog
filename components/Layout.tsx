@@ -1,12 +1,6 @@
-import Link from 'next/link'
-import Image from 'next/image'
 import { ReactNode, useState } from 'react'
-import Container from './Container'
 import Footer from './Footer'
-import HeaderNav from '@/data/headerNav'
-import SiteMeta from '@/data/siteMeta'
 import MobileNav from '@/components/MobileNav'
-import ThemeSwitch from '@/components/ThemeSwitch'
 import BackToTop from './BackToTop'
 import Header from './Header'
 
