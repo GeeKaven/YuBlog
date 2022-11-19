@@ -20,12 +20,12 @@ const Hero = () => {
         </div>
       )}
       {/* 信息 */}
-      <div className='flex flex-col justify-between space-y-2 ml-6'>
-        <h1 className='text-3xl sm:text-4xl font-medium bg-gradient-to-br from-pink-400 to-sky-500 bg-clip-text text-transparent'>
+      <div className='flex flex-col justify-between ml-6'>
+        <h1 className='pb-2 text-3xl sm:text-4xl font-medium bg-gradient-to-br from-pink-400 to-sky-500 bg-clip-text text-transparent'>
           {SiteMeta.title}
         </h1>
         <span className='text-gray-500 dark:text-gray-400'>{SiteMeta.description}</span>
-        <div className='flex items-center gap-3'>
+        <div className='flex items-center gap-3 pt-2'>
           {SiteMeta.socials && SiteMeta.socials.map(social => (
             <Link key={social.label} href={social.link} aria-label={`Read more about ${social.label}`}>{social.icon}</Link>
           ))}

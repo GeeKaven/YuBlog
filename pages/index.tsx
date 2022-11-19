@@ -1,4 +1,3 @@
-import dayjs from 'dayjs'
 import { getAllPostFrontMatter } from '@/lib/utils/post'
 import Link from 'next/link'
 import SiteMeta from '@/data/siteMeta'
