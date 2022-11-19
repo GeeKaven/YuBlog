@@ -27,7 +27,7 @@ const Hero = () => {
         <span className='text-gray-500 dark:text-gray-400'>{SiteMeta.description}</span>
         <div className='flex items-center gap-3'>
           {SiteMeta.socials && SiteMeta.socials.map(social => (
-            <Link key={social.label} href={social.link}>{social.icon}</Link>
+            <Link key={social.label} href={social.link} aria-label={`Read more about ${social.label}`}>{social.icon}</Link>
           ))}
         </div>
       </div>

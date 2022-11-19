@@ -21,18 +21,18 @@ const List = ({
   folder: string
 }) => (
   <div className='flex-1 mb-10'>
-    <h1 className='text-3xl font-bold'>{title}</h1>
+    <p className='text-3xl font-bold'>{title}</p>
     <div className='flex-1'>
       {list &&
         list.length > 0 &&
         list.map((post, index) => (
           <article key={index} className='my-8'>
-            <h3 className='font-medium text-lg sm:text-xl'>
+            <p className='font-medium text-lg sm:text-xl'>
               <Link href={`${post.slug}`} className='hover:text-primary-500'>
                 {post.title}
               </Link>
-            </h3>
-            <span className='font-medium inline-block text-sm mt-2 opacity-50'>
+            </p>
+            <span className='font-medium inline-block text-sm mt-2 text-gray-500 dark:text-gray-400'>
               {post.formatDate}
             </span>
           </article>
@@ -41,7 +41,7 @@ const List = ({
     <div className='text-base font-medium leading-6'>
       <Link
         href={`/${folder}`}
-        className='text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
+        className='text-primary-600 hover:text-primary-500 dark:text-primary-400 dark:hover:text-primary-500'
         aria-label={`Read "${folder}"`}
       >
         查看全部
