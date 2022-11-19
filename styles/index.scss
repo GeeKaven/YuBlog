@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  @apply text-gray-800 bg-white dark:text-gray-100 dark:bg-gray-900 antialiased;
+}
+
 .task-list-item::before {
   @apply hidden;
 }
@@ -12,15 +18,6 @@
 
 .footnotes {
   @apply pt-8 mt-12 border-t border-gray-200 dark:border-gray-700;
-}
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue,
-    helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
-  font-size: 16px;
-  touch-action: manipulation;
-  -webkit-tap-highlight-color: transparent;
-  @apply text-zinc-800 bg-white dark:text-gray-100 dark:bg-gray-900 antialiased;
 }
 
 .note {
@@ -53,7 +50,7 @@ body {
   }
 }
 
-.dark  {
+.dark {
   .note {
     @apply bg-slate-600/20;
     &::before {
