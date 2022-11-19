@@ -23,9 +23,9 @@ const ListLayout = ({
     <>
       <PageSEO title={`${title} - ${SiteMeta.author}`} description={SiteMeta.description} />
       <div>
-        <h1 className='text-4xl mt-14 mb-10'>
+        <p className='text-4xl mt-14 mb-10'>
           {title}
-        </h1>
+        </p>
       </div>
       <div className='flex-1'>
         {displayPosts.map((post, index) => (
@@ -33,20 +33,20 @@ const ListLayout = ({
             {(index === 0 ||
               dayjs(displayPosts[index - 1].date).year() !==
                 dayjs(post.date).year()) && (
-              <h2 className="font-medium text-2xl sm:text-3xl before:content-['#_'] before:text-primary-500">
+              <p className="font-medium text-2xl sm:text-3xl before:content-['#_'] before:text-primary-500">
                 {dayjs(post.date).year()}
-              </h2>
+              </p>
             )}
             <article key={index} className='my-8'>
-              <h3 className='font-medium text-lg sm:text-xl'>
+              <p className='font-medium text-lg sm:text-xl'>
                 <Link
                   href={`${post.slug}`}
                   className='hover:text-primary-500'
                 >
                   {post.title}
                 </Link>
-              </h3>
-              <span className='font-medium inline-block text-sm mt-2 opacity-50'>
+              </p>
+              <span className='font-medium inline-block text-sm mt-2 text-gray-500 dark:text-gray-400'>
                 {dayjs(post.date).format('LL')}
               </span>
             </article>
