@@ -16,8 +16,7 @@
 
 /* Code block styles */
 .code-highlight {
-  @apply float-left min-w-full font-semibold sm:text-base text-sm;
-  font-family: '"Fira Code", monospace';
+  @apply float-left min-w-full font-medium sm:text-base text-sm;
 }
 
 .code-line {
