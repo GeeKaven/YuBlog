@@ -1,6 +1,6 @@
 ---
 title: "通过 Docker Compose 搭建 Miniflux"
-date: 2021-03-20 14:04:29+08:00
+date: 2021-03-20 14:04:29
 tags: ['miniflux']
 ---
 
