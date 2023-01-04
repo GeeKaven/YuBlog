@@ -16,6 +16,11 @@ const SiteMeta = {
     { label: 'Twitter', icon: <FiTwitter className="text-lg" aria-hidden />, link: 'https://twitter.com/tawawa_moe' },
     { label: 'Email', icon: <FiMail className="text-lg" aria-hidden />, link: 'mailto:i@tawawa.moe' },
   ],
+  bangumi: {
+    apiUrl: 'https://bangumi-tv.vercel.app',
+    quote: '日々私たちが过ごしている日常は、実は、奇迹の连続なのかもしれない ',
+    from: '日常'
+  }
 }
 
 export default SiteMeta
