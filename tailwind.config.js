@@ -17,6 +17,11 @@ module.exports = {
       colors: {
         primary: colors.indigo,
       },
+      gridTemplateColumns: {
+        // Simple 16 column grid
+        'auto-fit-200': 'repeat(auto-fit, minmax(200px, 1fr))',
+        'auto-fit-100': 'repeat(auto-fit, minmax(150px, 1fr))',
+      },
       typography: (theme) => ({
         DEFAULT: {
           css: {
