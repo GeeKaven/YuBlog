@@ -3,13 +3,11 @@ const path = require('path')
 const dayjs = require('dayjs')
 
 function buildFrontmatter(filename, tags) {
-  return `
-  ---
-  title: '${filename}',
-  date: ${dayjs().format('YYYY-MM-DD HH:mm:ss')},
-  tags: [${tags.map(tag => `'${tag}'`)}]
-  ---
-  `
+  return `---
+title: '${filename}',
+date: ${dayjs().format('YYYY-MM-DD HH:mm:ss')},
+tags: [${tags.map(tag => `'${tag}'`)}]
+---`
 }
 
 // pnpm new blog/remark "filename" tag1 tag2 tag3
