@@ -14,7 +14,7 @@ dayjs.extend(localizedFormat)
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <NextNProgress color='#6366f1' options={{ showSpinner: false }} />
+      <NextNProgress options={{ showSpinner: false }} />
       <ThemeProvider attribute='class' defaultTheme={SiteMeta.theme}>
         <Head>
           <meta content='width=device-width, initial-scale=1' name='viewport' />
