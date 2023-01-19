@@ -10,7 +10,10 @@ const nextConfig = {
         port: '',
       }
     ]
-  }
+  },
+  experimental: {
+    appDir: true,
+  },
 }
 
 module.exports = nextConfig

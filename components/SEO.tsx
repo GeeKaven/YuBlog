@@ -1,6 +1,8 @@
+'use client'
+
 import React from 'react'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
+import { usePathname } from 'next/navigation'
 import siteMeta from '@/data/siteMeta'
 
 const CommonSEO = ({
@@ -16,13 +18,14 @@ const CommonSEO = ({
   ogImage: string | { url: string }[]
   twImage: string
 }) => {
-  const router = useRouter()
+  const pathname = usePathname();
+
   return (
     <Head>
       <title>{title}</title>
       <meta name='robots' content='follow, index' />
       <meta name='description' content={description} />
-      <meta property='og:url' content={`${siteMeta.siteUrl}${router.asPath}`} />
+      <meta property='og:url' content={`${siteMeta.siteUrl}${pathname}`} />
       <meta property='og:type' content={ogType} />
       <meta property='og:site_name' content={siteMeta.title} />
       <meta property='og:description' content={description} />
@@ -65,7 +68,8 @@ export const PageSEO = ({ title, description }: SEOProps) => {
 export const TagSEO = ({ title, description }: SEOProps) => {
   const ogImageUrl = siteMeta.siteUrl + siteMeta.socialBanner
   const twImageUrl = siteMeta.siteUrl + siteMeta.socialBanner
-  const router = useRouter()
+  const pathname = usePathname();
+
   return (
     <>
       <CommonSEO
@@ -80,15 +84,23 @@ export const TagSEO = ({ title, description }: SEOProps) => {
           rel='alternate'
           type='application/rss+xml'
           title={`${description} - RSS feed`}
-          href={`${siteMeta.siteUrl}${router.asPath}/feed.xml`}
+          href={`${siteMeta.siteUrl}${pathname}/feed.xml`}
         />
       </Head>
     </>
   )
 }
 
-export const BlogSEO = ({ title, summary, date, lastModified, url, heroImage }: PostFrontmatter) => {
-  const router = useRouter()
+export const BlogSEO = ({
+  title,
+  summary,
+  date,
+  lastModified,
+  url,
+  heroImage,
+}: PostFrontmatter) => {
+  const pathname = usePathname();
+
   const publishedAt = new Date(date).toISOString()
   const modifiedAt = new Date(lastModified || date).toISOString()
   const imagesArr = heroImage ? [heroImage] : [siteMeta.socialBanner]
@@ -141,7 +153,7 @@ export const BlogSEO = ({ title, summary, date, lastModified, url, heroImage }: 
         {lastModified && (
           <meta property='article:modified_time' content={modifiedAt} />
         )}
-        <link rel='canonical' href={`${siteMeta.siteUrl}${router.asPath}`} />
+        <link rel='canonical' href={`${siteMeta.siteUrl}${pathname}`} />
         <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{

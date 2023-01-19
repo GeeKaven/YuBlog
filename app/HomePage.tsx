@@ -1,14 +1,7 @@
+import { use } from 'react'
 import { getAllPostFrontMatter } from '@/lib/utils/post'
 import Link from 'next/link'
-import SiteMeta from '@/data/siteMeta'
-import { PageSEO } from '@/components/SEO'
-import Hero from '@/components/Hero'
 import { POSTS_PER_PAGE } from '@/layouts/ListLayout'
-
-type IndexProps = {
-  blog: { list: PostFrontmatter[]; title: string }
-  remark: { list: PostFrontmatter[]; title: string }
-}
 
 const List = ({
   title,
@@ -49,27 +42,22 @@ const List = ({
   </div>
 )
 
-export default function Index({ blog, remark }: IndexProps) {
+export default function HomePage() {
+  const blogPosts = use(getAllPostFrontMatter(['blog']))
+  const remarkPosts = use(getAllPostFrontMatter(['remark']))
+
   return (
-    <>
-      <PageSEO title={SiteMeta.title} description={SiteMeta.description} />
-      <Hero />
-      <div className='flex flex-col'>
-        <List title={blog.title} list={blog.list} folder='blog' />
-        <List title={remark.title} list={remark.list} folder='remark' />
-      </div>
-    </>
+    <div className='flex flex-col'>
+      <List
+        title='最新文章'
+        list={blogPosts.slice(0, POSTS_PER_PAGE)}
+        folder='blog'
+      />
+      <List
+        title='最新随笔'
+        list={remarkPosts.slice(0, POSTS_PER_PAGE)}
+        folder='remark'
+      />
+    </div>
   )
-}
-
-export async function getStaticProps() {
-  const blogPosts = await getAllPostFrontMatter(['blog'])
-  const remarkPosts = await getAllPostFrontMatter(['remark'])
-
-  return {
-    props: {
-      blog: { list: blogPosts.slice(0, POSTS_PER_PAGE), title: '最新文章' },
-      remark: { list: remarkPosts.slice(0, POSTS_PER_PAGE), title: '最新随笔' },
-    },
-  }
 }

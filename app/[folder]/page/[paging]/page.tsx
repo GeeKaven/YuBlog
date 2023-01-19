@@ -1,14 +1,15 @@
 import { getAllPostFrontMatter } from '@/lib/utils/post'
 import ListLayout, { POSTS_PER_PAGE } from '@/layouts/ListLayout'
 import { POST_FOLDER, ARCHIVE_FOLDER, LIST_TITLE } from '@/lib/utils/post'
+import { use } from 'react'
 
-export async function getStaticProps({ params }) {
-  const { folder, page } = params
+export const dynamicParams = false;
 
+async function getPageList(folder, page) {
   const queryFolder = []
   if (folder === ARCHIVE_FOLDER) {
     queryFolder.push(...POST_FOLDER)
-  } else{
+  } else {
     queryFolder.push(folder)
   }
 
@@ -22,20 +23,18 @@ export async function getStaticProps({ params }) {
   const pagination: PaginationType = {
     currentPage: pageNumber,
     totalPages: Math.ceil(posts.length / POSTS_PER_PAGE),
-    path: folder
+    path: folder,
   }
 
   return {
-    props: {
-      posts,
-      displayPosts,
-      pagination,
-      title: LIST_TITLE[folder],
-    },
+    posts,
+    displayPosts,
+    pagination,
+    title: LIST_TITLE[folder],
   }
 }
 
-export async function getStaticPaths() {
+export async function generateStaticParams() {
   const paths = []
   const archivesPosts = []
   for (const folder of POST_FOLDER) {
@@ -43,7 +42,8 @@ export async function getStaticPaths() {
     const totalPages = Math.ceil(totalPosts.length / POSTS_PER_PAGE)
 
     const folderPaths = Array.from({ length: totalPages }, (_, i) => ({
-      params: { folder, page: (i + 1).toString() },
+      folder,
+      paging: (i + 1).toString(),
     }))
 
     paths.push(...folderPaths)
@@ -52,14 +52,28 @@ export async function getStaticPaths() {
 
   const archivesTotalPages = Math.ceil(archivesPosts.length / POSTS_PER_PAGE)
   const archivesPaths = Array.from({ length: archivesTotalPages }, (_, i) => ({
-    params: { folder: ARCHIVE_FOLDER, page: (i + 1).toString() },
+    folder: ARCHIVE_FOLDER,
+    paging: (i + 1).toString(),
   }))
+
   paths.push(...archivesPaths)
 
-  return {
-    paths,
-    fallback: false,
-  }
+  return paths
 }
 
-export default ListLayout
+export default function PageList({
+  params,
+}: {
+  params: { folder: string; pagin: string }
+}) {
+  const { folder, pagin: page } = params
+  const list = use(getPageList(folder, page))
+  return (
+    <ListLayout
+      posts={list.posts}
+      displayPosts={list.displayPosts}
+      pagination={list.pagination}
+      title={list.title}
+    ></ListLayout>
+  )
+}

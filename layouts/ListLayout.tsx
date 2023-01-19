@@ -9,7 +9,7 @@ export const POSTS_PER_PAGE = 5
 type ListLayoutProps = {
   posts: PostFrontmatter[]
   displayPosts: PostFrontmatter[]
-  pagination: PaginationType
+  pagination?: PaginationType
   title: string
 }
 
@@ -47,7 +47,7 @@ const ListLayout = ({
                 </Link>
               </p>
               <span className='font-medium inline-block text-sm mt-2 text-gray-500 dark:text-gray-400'>
-                {dayjs(post.date).format('LL')}
+                {post.formatDate}
               </span>
             </article>
           </div>

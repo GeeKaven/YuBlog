@@ -1,3 +1,5 @@
+'use client'
+
 import { ReactNode, useState } from 'react'
 import Footer from './Footer'
 import MobileNav from '@/components/MobileNav'

@@ -4,7 +4,6 @@ import ListItem from '@/components/ListItem'
 import Link from 'next/link'
 import { HiArrowSmLeft, HiArrowSmRight, HiOutlineClock } from 'react-icons/hi'
 import { slug } from 'github-slugger'
-import dayjs from 'dayjs'
 import { BlogSEO } from '@/components/SEO'
 import SiteMeta from '@/data/siteMeta'
 
@@ -36,7 +35,7 @@ const PostLayout = (props: PostLayoutProps) => {
       <div className='text-gray-600 dark:text-gray-400 flex items-center text-sm mt-4'>
         <HiOutlineClock className='mr-1 text-lg'/>
         {`发布时间：`}
-        {dayjs(frontmatter.date).format('LL')}
+        {frontmatter.formatDate}
       </div>
       {/*标签 */}
       {frontmatter.tags && frontmatter.tags.length > 0 && (

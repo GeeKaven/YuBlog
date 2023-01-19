@@ -1,7 +1,10 @@
 import glob from 'fast-glob'
 import matter from 'gray-matter'
 import dayjs from 'dayjs'
+import localizedFormat from 'dayjs/plugin/localizedFormat'
 import { readFileSync } from 'fs'
+
+dayjs.extend(localizedFormat)
 
 export const POST_FOLDER = ['blog', 'remark']
 export const ARCHIVE_FOLDER = 'archives'
