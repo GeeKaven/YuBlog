@@ -1,4 +1,3 @@
-import { use } from 'react'
 import {
   ARCHIVE_FOLDER,
   getPostsByFolder,
@@ -10,7 +9,7 @@ import ListLayout from '@/layouts/ListLayout'
 
 export const dynamicParams = false;
 
-function getList(folder) {
+function getList(folder: string) {
 
   const posts = getPostsByFolder(folder)
   const displayPosts = posts.slice(0, POSTS_PER_PAGE)
