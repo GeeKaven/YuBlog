@@ -1,7 +1,7 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 import remarkGfm from 'remark-gfm'
 import remarkDirective from 'remark-directive'
-import remarkSideNote from './lib/remark-side-note'
+import remarkSideNote from './src/lib/remark-side-note'
 import rehypeSlug from 'rehype-slug'
 import rehypePrismPlus from 'rehype-prism-plus'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
@@ -9,7 +9,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 
 export const Post =  defineDocumentType(() => ({
   name: 'Blog',
-  filePathPattern: 'posts/blog/**/*.md',
+  filePathPattern: 'posts/blog/**/*.mdx',
   contentType: 'mdx',
   fields: {
     title: {
@@ -44,7 +44,7 @@ export const Post =  defineDocumentType(() => ({
 
 export const Remark =  defineDocumentType(() => ({
   name: 'Remark',
-  filePathPattern: 'posts/remark/**/*.md',
+  filePathPattern: 'posts/remark/**/*.mdx',
   contentType: 'mdx',
   fields: {
     title: {

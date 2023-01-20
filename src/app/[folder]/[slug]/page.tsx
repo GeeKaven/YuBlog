@@ -35,7 +35,6 @@ export default function Page({
   const nextPost = idx > 0 ? posts[idx - 1] : undefined
   const next = nextPost ? { link: `${nextPost.url}`, title: nextPost.title } : null
 
-  console.log(post)
   return (
     <PostLayout
       post={post}

@@ -13,6 +13,9 @@ const nextConfig = withContentlayer({
       }
     ]
   },
+  sassOptions: {
+    includePaths: ['./src'],
+  },
   experimental: {
     appDir: true,
   },
