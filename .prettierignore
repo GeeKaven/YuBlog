@@ -1,1 +1,7 @@
-**/.git**/.svn**/.hg**/node_modulesindex.htmlpnpm-lock.yaml
+**/.git
+**/.svn
+**/.hg
+**/node_modules
+index.html
+pnpm-lock.yaml
+.contentlayer

@@ -1,13 +1,12 @@
 import { slug } from 'github-slugger'
-import { getAllPostFrontMatter, POST_FOLDER } from '@/lib/utils/post'
+import { getAllPosts } from '@/lib/utils/post'
 import { getAllTags } from '@/lib/utils/tag'
 import ListLayout from '@/layouts/ListLayout'
-import { use } from 'react'
 
 export const dynamicParams = false;
 
-export async function generateStaticParams() {
-  const tags = await getAllTags()
+export function generateStaticParams() {
+  const tags = getAllTags()
 
   return Object.keys(tags).map((tag) => ({ tag }))
 }
@@ -15,7 +14,8 @@ export async function generateStaticParams() {
 export default function Tag({ params }: { params: { tag: string } }) {
   const tag = decodeURI(params.tag)
 
-  const allPosts = use(getAllPostFrontMatter(POST_FOLDER))
+  const allPosts = getAllPosts()
+
   const filterPosts = allPosts.filter(
     (post) => post.draft !== true && post.tags.map((t) => slug(t)).includes(tag)
   )

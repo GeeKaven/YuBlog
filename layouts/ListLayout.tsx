@@ -3,12 +3,12 @@ import SiteMeta from '@/data/siteMeta'
 import dayjs from 'dayjs'
 import Link from 'next/link'
 import Pagination from '@/components/Pagination'
-
-export const POSTS_PER_PAGE = 5
+import { DocumentTypes } from 'contentlayer/generated'
+import { formatDate } from '@/lib/utils/time'
 
 type ListLayoutProps = {
-  posts: PostFrontmatter[]
-  displayPosts: PostFrontmatter[]
+  posts: DocumentTypes[]
+  displayPosts: DocumentTypes[]
   pagination?: PaginationType
   title: string
 }
@@ -40,14 +40,14 @@ const ListLayout = ({
             <article key={index} className='my-8'>
               <p className='font-medium text-lg sm:text-xl'>
                 <Link
-                  href={`${post.slug}`}
+                  href={`${post.url}`}
                   className='hover:text-primary-500'
                 >
                   {post.title}
                 </Link>
               </p>
               <span className='font-medium inline-block text-sm mt-2 text-gray-500 dark:text-gray-400'>
-                {post.formatDate}
+                {formatDate(post.date, 'LL')}
               </span>
             </article>
           </div>

@@ -1,4 +1,3 @@
-import { use } from 'react'
 import { slug } from 'github-slugger'
 import { getAllTags } from '@/lib/utils/tag'
 import Link from 'next/link'
@@ -6,7 +5,7 @@ import { PageSEO } from '@/components/SEO'
 import SiteMeta from '@/data/siteMeta'
 
 export default function Tags() {
-  const tags = use(getAllTags())
+  const tags = getAllTags()
 
   const sortedTags = Object.keys(tags).sort((a, b) => tags[b] - tags[a])
   return (

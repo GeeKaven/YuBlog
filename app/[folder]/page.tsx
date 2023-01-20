@@ -1,23 +1,18 @@
 import { use } from 'react'
 import {
   ARCHIVE_FOLDER,
-  getAllPostFrontMatter,
+  getPostsByFolder,
   LIST_TITLE,
+  POSTS_PER_PAGE,
   POST_FOLDER,
 } from '@/lib/utils/post'
-import ListLayout, { POSTS_PER_PAGE } from '@/layouts/ListLayout'
+import ListLayout from '@/layouts/ListLayout'
 
 export const dynamicParams = false;
 
-async function getList(folder) {
-  const queryFolder = []
-  if (folder === 'archives') {
-    queryFolder.push(...POST_FOLDER)
-  } else {
-    queryFolder.push(folder)
-  }
+function getList(folder) {
 
-  const posts = await getAllPostFrontMatter(queryFolder)
+  const posts = getPostsByFolder(folder)
   const displayPosts = posts.slice(0, POSTS_PER_PAGE)
 
   const pagination: PaginationType = {
@@ -39,7 +34,7 @@ export async function generateStaticParams() {
 }
 
 export default function List({ params }: { params: { folder: string } }) {
-  const list = use(getList(params.folder))
+  const list = getList(params.folder)
 
   return (
     <ListLayout

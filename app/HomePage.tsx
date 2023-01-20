@@ -1,7 +1,7 @@
-import { use } from 'react'
-import { getAllPostFrontMatter } from '@/lib/utils/post'
+import { getRecentPosts } from '@/lib/utils/post'
+import { formatDate } from '@/lib/utils/time'
 import Link from 'next/link'
-import { POSTS_PER_PAGE } from '@/layouts/ListLayout'
+import { DocumentTypes } from 'contentlayer/generated'
 
 const List = ({
   title,
@@ -9,7 +9,7 @@ const List = ({
   folder,
 }: {
   title: string
-  list: PostFrontmatter[]
+  list: DocumentTypes[]
   folder: string
 }) => (
   <div className='flex-1 mb-10'>
@@ -20,12 +20,12 @@ const List = ({
         list.map((post, index) => (
           <article key={index} className='my-8'>
             <p className='font-medium text-lg sm:text-xl'>
-              <Link href={`${post.slug}`} className='hover:text-primary-500'>
+              <Link href={`${post.url}`} className='hover:text-primary-500'>
                 {post.title}
               </Link>
             </p>
             <span className='font-medium inline-block text-sm mt-2 text-gray-500 dark:text-gray-400'>
-              {post.formatDate}
+              {formatDate(post.date, 'LL')}
             </span>
           </article>
         ))}
@@ -43,19 +43,18 @@ const List = ({
 )
 
 export default function HomePage() {
-  const blogPosts = use(getAllPostFrontMatter(['blog']))
-  const remarkPosts = use(getAllPostFrontMatter(['remark']))
+  const { blogs, remarks } = getRecentPosts()
 
   return (
     <div className='flex flex-col'>
       <List
         title='最新文章'
-        list={blogPosts.slice(0, POSTS_PER_PAGE)}
+        list={blogs}
         folder='blog'
       />
       <List
         title='最新随笔'
-        list={remarkPosts.slice(0, POSTS_PER_PAGE)}
+        list={remarks}
         folder='remark'
       />
     </div>

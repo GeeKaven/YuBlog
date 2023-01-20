@@ -1,14 +1,14 @@
 ---
-title: "JMM 角度解析 volatile 关键字作用与基础原理"
+title: 'JMM 角度解析 volatile 关键字作用与基础原理'
 date: 2021-01-03 21:53:38
+slug: 'volatile-jmm'
 tags: ['Java', 'JMM']
+type: Blog
 ---
 
 首先看下面一段代码：
 在 main 中开启一个线程，输出 thread start，当 flag 为 true 时线程死循环运行。然后暂停 3 秒，将 flag 改成 false，我们预期的此时会输出 thread end 线程结束，然后程序结束。
 但是当运行程序后会发现输出 thread start 后程序就卡死了，循环没有退出，程序也没有结束。
-
-<!-- more -->
 
 ```java
 public class Test {

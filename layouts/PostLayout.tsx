@@ -1,46 +1,47 @@
-import React, { useMemo } from 'react'
-import { getMDXComponent } from 'mdx-bundler/client'
+import React from 'react'
+import { useMDXComponent } from 'next-contentlayer/hooks'
 import ListItem from '@/components/ListItem'
 import Link from 'next/link'
 import { HiArrowSmLeft, HiArrowSmRight, HiOutlineClock } from 'react-icons/hi'
 import { slug } from 'github-slugger'
 import { BlogSEO } from '@/components/SEO'
 import SiteMeta from '@/data/siteMeta'
+import { DocumentTypes } from 'contentlayer/generated'
+import { formatDate } from '@/lib/utils/time'
 
 type PostLayoutProps = {
-  code: string
-  frontmatter: PostFrontmatter
+  post: DocumentTypes
   prev: { link: string; title: string }
   next: { link: string; title: string }
 }
 
 const components = {
-  li: ListItem
+  li: ListItem,
 }
 
 const PostLayout = (props: PostLayoutProps) => {
-  const { code, frontmatter, prev, next } = props
-  const MDXComponent = useMemo(() => getMDXComponent(code), [code])
+  const { post, prev, next } = props
+  const MDXComponent = useMDXComponent(post.body.code)
 
   return (
     <div className='break-all'>
-      <BlogSEO
+      {/* <BlogSEO
         url={`${SiteMeta.siteUrl}/${slug}`}
         {...frontmatter}
-      />
+      /> */}
       <h1 className='mt-12 sm:mt-14 text-2xl sm:text-4xl text-black dark:text-white !leading-snug tracking-tight font-medium'>
-        {frontmatter.title}
+        {post.title}
       </h1>
       {/*发布时间 */}
       <div className='text-gray-600 dark:text-gray-400 flex items-center text-sm mt-4'>
-        <HiOutlineClock className='mr-1 text-lg'/>
+        <HiOutlineClock className='mr-1 text-lg' />
         {`发布时间：`}
-        {frontmatter.formatDate}
+        {formatDate(post.date, 'LL')}
       </div>
       {/*标签 */}
-      {frontmatter.tags && frontmatter.tags.length > 0 && (
+      {post.tags && post.tags.length > 0 && (
         <div className='flex items-center flex-wrap m-auto mt-6 sm:mt-12 text-sm gap-2 sm:gap-3'>
-          {frontmatter.tags.map((tag) => (
+          {post.tags.map((tag) => (
             <Link
               key={tag}
               href={`/tags/${slug(tag)}`}

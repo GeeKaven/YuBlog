@@ -1,8 +1,7 @@
-import glob from 'fast-glob'
-import matter from 'gray-matter'
 import dayjs from 'dayjs'
 import localizedFormat from 'dayjs/plugin/localizedFormat'
-import { readFileSync } from 'fs'
+
+import { allBlogs, allRemarks, Blog, Remark } from 'contentlayer/generated'
 
 dayjs.extend(localizedFormat)
 
@@ -14,59 +13,34 @@ export const LIST_TITLE = {
   archives: '归档'
 }
 
-export async function getAllPostPaths(folder: string) {
-  return await glob(`./posts/${folder}/**/*.md`)
+export function formatSlug(sourceName) {
+  return sourceName.replace(/\.(mdx|md)$/g, '')
 }
 
-export function formatSlug(slug, folder) {
-  let reg = null
-  if (folder === 'blog') {
-    reg = /^\.\/posts\/blog\/|\.(mdx|md)$/g
-  }
-  if (folder === 'remark') {
-    reg = /^\.\/posts\/remark\/|\.(mdx|md)$/g
-  }
-
-  return slug.replace(reg, '')
+function sortPost(posts: Blog[] | Remark[]) {
+  return posts.sort((a,b) => dayjs(b.date).valueOf() - dayjs(a.date).valueOf())
 }
 
-export async function getAllPostFrontMatter(
-  folders: Array<string>
-): Promise<PostFrontmatter[]> {
-  const allFrontMatter: PostFrontmatter[] = []
-  for (const folder of folders) {
-    const files = await getAllPostPaths(folder.toString())
+export const POSTS_PER_PAGE = 5
 
-    const folderFrontMatter = await Promise.all(
-      files.map((file) => {
-        const source = readFileSync(file, 'utf-8')
-        const frontMatter = matter(source).data as PostFrontmatter
-        if (frontMatter.draft !== true) {
-          return {
-            ...frontMatter,
-            slug: file.replace(/^\.\/posts|\.(mdx|md)$/g, ''),
-            date: dayjs(frontMatter.date).valueOf(),
-            formatDate: dayjs(frontMatter.date).format('LL')
-          }
-        }
-      })
-    )
-
-    allFrontMatter.push(...folderFrontMatter)
-  }
-
-  return allFrontMatter.sort((a, b) => b.date - a.date)
-}
-
-export async function getAdjacentPost(slug: string, folder: string) {
-  const posts = await getAllPostFrontMatter([folder])
-  const idx = posts.findIndex((post) => post.slug === `/${folder}/${slug}`)
-  const prevPost =
-    idx !== -1 && idx < posts.length - 1 ? posts[idx + 1] : undefined
-  const nextPost = idx > 0 ? posts[idx - 1] : undefined
+export function getRecentPosts() {
 
   return {
-    prev: prevPost,
-    next: nextPost,
+    blogs: sortPost(allBlogs).slice(0, POSTS_PER_PAGE),
+    remarks: sortPost(allRemarks).slice(0, POSTS_PER_PAGE)
   }
+}
+
+export function getAllPosts() {
+  return [...allBlogs, ...allRemarks].sort((a,b) => dayjs(b.date).valueOf() - dayjs(a.date).valueOf())
+}
+
+export function getPostsByFolder(folder: string) {
+  if (folder === 'blog') {
+    return sortPost(allBlogs)
+  } else if(folder === 'remark') {
+    return sortPost(allRemarks)
+  }
+
+  return getAllPosts()
 }
