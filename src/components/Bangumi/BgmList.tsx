@@ -5,11 +5,42 @@ import Image from 'next/image'
 import Link from 'next/link'
 import useSWRInfinite from 'swr/infinite'
 import { BgmStateAtom } from './BgmState'
+import { Fetcher } from 'swr'
 
 const bangumiUrl = SiteMeta.bangumi.apiUrl
 const PAGE_SIZE = 12
 
-const fetcher = (url) => fetch(url).then((res) => res.json())
+const fetcher: Fetcher<BgmType, string> = (url) =>
+  fetch(url).then((res) => res.json())
+
+type BgmItemType = {
+  date: string
+  ep_status: number
+  eps: number
+  images: {
+    common: string
+    grid: string
+    large: string
+    medium: string
+    small: string
+  }
+  name: string
+  name_cn: string
+  private: boolean
+  rate: number
+  subject_id: number
+  subject_type: number
+  summary: string
+  total_episodes: number
+  type: number
+  updated_at: string
+  vol_status: number
+}
+
+type BgmType = {
+  data: BgmItemType[]
+  total: number
+}
 
 const BgmList = () => {
   const [{ type }] = useAtom(BgmStateAtom)
@@ -40,12 +71,12 @@ const BgmList = () => {
   const isLoadingMore =
     isLoadingInitialData ||
     (size > 0 && data && typeof data[size - 1] === 'undefined')
-  const isEmpty = data?.[0]?.length === 0
+  const isEmpty = data?.length === 0
   const isReachingEnd =
     isEmpty || (data && data[data.length - 1]?.data?.length < PAGE_SIZE)
 
-  const bgmList = []
-  data.forEach(item => bgmList.push(...item.data))
+  const bgmList: BgmItemType[] = []
+  data?.forEach((item) => bgmList.push(...item.data))
 
   return (
     <>
@@ -99,14 +130,14 @@ const BgmList = () => {
       <button
         disabled={isLoadingMore || isReachingEnd}
         onClick={() => setSize(size + 1)}
-        style={isLoadingMore ? {backgroundColor: '#6b7280'} : {}}
+        style={isLoadingMore ? { backgroundColor: '#6b7280' } : {}}
         className={classNames(
           `block w-24 mt-4 mx-auto py-2 px-4 font-semibold  text-white text-center
        bg-primary-400 hover:bg-primary-500 dark:bg-primary-500 dark:hover:bg-primary-600
         rounded-full shadow-md 
         focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75`,
           {
-            'hidden': isReachingEnd,
+            hidden: isReachingEnd,
           }
         )}
       >

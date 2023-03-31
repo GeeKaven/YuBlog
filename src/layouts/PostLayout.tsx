@@ -4,9 +4,7 @@ import ListItem from '@/components/ListItem'
 import Link from 'next/link'
 import { HiArrowSmLeft, HiArrowSmRight, HiOutlineClock } from 'react-icons/hi'
 import { slug } from 'github-slugger'
-import { BlogSEO } from '@/components/SEO'
-import SiteMeta from '@/data/siteMeta'
-import { Blog, DocumentTypes, Remark } from 'contentlayer/generated'
+import { Blog, Remark } from 'contentlayer/generated'
 import { formatDate } from '@/lib/utils/time'
 
 type PostLayoutProps = {

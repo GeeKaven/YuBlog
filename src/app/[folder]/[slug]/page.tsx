@@ -28,8 +28,6 @@ export function generateStaticParams() {
     paths.push(...folderPaths)
   }
 
-  console.log(paths)
-
   return paths
 }
 
