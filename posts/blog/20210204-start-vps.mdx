@@ -1,0 +1,91 @@
+---
+title: 'VPS 开始必做的事'
+date: 2021-02-04 21:53:38
+slug: 'start-vps'
+tags: ['VPS']
+type: Blog
+---
+
+记录下拿到新 VPS 后需要做的一些操作
+
+*本设置基于 Ubuntu*
+## ssh 安全设置
+### 账户设置
+添加新账户
+```bash
+useradd tawawa -m -G sudo
+```
+设置密码
+```bash
+passwd tawawa
+```
+如果每次 `sudo` 后输入密码麻烦可以用 `visudo` 命令修改 `sudoers` 文件
+```bash
+# 默认 nano，如果不行可以修改默认编辑器
+sudo update-alternatives --config editor
+visudo
+```
+然后在后面的 `ALL` 添加 `NOPASSWD: `
+```bash
+%sudo   ALL= ( ALL: ALL ) NOPASSWD: ALL
+```
+### SSH 文件配置
+```bash
+sudo vim /etc/ssh/sshd_config
+```
+修改默认端口 ( 默认 22 )
+```bash
+# Port 22
+Port 3333
+```
+禁止 Root 用户登录
+```bash
+PermitRootLogin no
+```
+ssh 公钥登录
+```bash
+PubkeyAuthentication yes
+AuthorizedKeysFile .ssh/authorized_keys  #公钥文件
+```
+上传本地公钥
+```bash
+ssh user@host 'mkdir -p .ssh && cat >> .ssh/authorized_keys' < ~/.ssh/id_rsa.pub
+```
+重启 SSH
+```bash
+sudo systemctl restart sshd.service
+```
+本地 SSH 配置文件
+```bash
+Host server-alias # ssh 登录设置的主机别名
+HostName ip_addr # 服务器 ip 地址
+Port port # ssh 端口
+User 用户名
+IdentityFile ~/.ssh/id_rsa # 私钥位置
+PreferredAuthentications publickey
+```
+常用的 ssh 配置项有：
+-   Host 别名
+-   HostName 主机名
+-   Port 端口
+-   User 用户名
+-   IdentityFile 密钥文件的路径
+-   IdentitiesOnly 只接受 SSH key 登录
+-   PreferredAuthentications 强制使用 Public Key 验证
+
+退出主机可尝试用配置文件登录
+```bash
+ssh 用户名@别名
+```
+登录成功后可以取消密码登录
+```bash
+sudo vim /etc/ssh/sshd_config   #打开配置文件
+PasswordAuthentication no     #找到 PasswordAuthentication 改成 no
+sudo systemctl restart sshd.service   #重启 ssh 服务
+```
+我们取消了 root 和密钥登录，需要保存好私钥，要不然有可能登录不了服务器
+
+## 参考资料
+1.  [how-to-add-and-delete-users-on-ubuntu-18-04](https://www.digitalocean.com/community/tutorials/how-to-add-and-delete-users-on-ubuntu-18-04)
+2.  [SSH 原理与应用](http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html)
+3.  [how-to-change-visudo-editor-from-nano-to-vim](https://askubuntu.com/questions/539243/how-to-change-visudo-editor-from-nano-to-vim)
