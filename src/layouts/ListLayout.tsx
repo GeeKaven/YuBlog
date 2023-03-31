@@ -1,5 +1,3 @@
-import { PageSEO } from '@/components/SEO'
-import SiteMeta from '@/data/siteMeta'
 import dayjs from 'dayjs'
 import Link from 'next/link'
 import Pagination from '@/components/Pagination'
@@ -21,11 +19,8 @@ const ListLayout = ({
 }: ListLayoutProps) => {
   return (
     <>
-      <PageSEO title={`${title} - ${SiteMeta.author}`} description={SiteMeta.description} />
       <div>
-        <p className='text-4xl mt-14 mb-10'>
-          {title}
-        </p>
+        <p className='text-4xl mt-14 mb-10'>{title}</p>
       </div>
       <div className='flex-1'>
         {displayPosts.map((post, index) => (
@@ -39,10 +34,7 @@ const ListLayout = ({
             )}
             <article key={index} className='my-8'>
               <p className='font-medium text-lg sm:text-xl'>
-                <Link
-                  href={`${post.url}`}
-                  className='hover:text-primary-500'
-                >
+                <Link href={`${post.url}`} className='hover:text-primary-500'>
                   {post.title}
                 </Link>
               </p>

@@ -6,11 +6,12 @@ import {
   POST_FOLDER,
 } from '@/lib/utils/post'
 import ListLayout from '@/layouts/ListLayout'
+import { PageSEO } from '@/lib/utils/seo'
+import SiteMeta from '@/data/siteMeta'
 
-export const dynamicParams = false;
+export const dynamicParams = false
 
 function getList(folder: string) {
-
   const posts = getPostsByFolder(folder)
   const displayPosts = posts.slice(0, POSTS_PER_PAGE)
 
@@ -26,6 +27,15 @@ function getList(folder: string) {
     pagination,
     title: LIST_TITLE[folder],
   }
+}
+
+export function generateMetadata({ params }) {
+  const { folder } = params
+
+  return PageSEO(
+    `${LIST_TITLE[folder]} - ${SiteMeta.author}`,
+    SiteMeta.description
+  )
 }
 
 export async function generateStaticParams() {

@@ -6,13 +6,13 @@ import { HiArrowSmLeft, HiArrowSmRight, HiOutlineClock } from 'react-icons/hi'
 import { slug } from 'github-slugger'
 import { BlogSEO } from '@/components/SEO'
 import SiteMeta from '@/data/siteMeta'
-import { DocumentTypes } from 'contentlayer/generated'
+import { Blog, DocumentTypes, Remark } from 'contentlayer/generated'
 import { formatDate } from '@/lib/utils/time'
 
 type PostLayoutProps = {
-  post: DocumentTypes
-  prev: { link: string; title: string }
-  next: { link: string; title: string }
+  post: Blog | Remark
+  prev: { link: string; title: string } | null
+  next: { link: string; title: string } | null
 }
 
 const components = {

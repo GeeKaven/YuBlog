@@ -15,7 +15,8 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body>
-        <NextNProgress options={{ showSpinner: false }} />
+        {/* TODO: not work */}
+        {/* <NextNProgress options={{ showSpinner: false }} /> */}
         <ThemeProvider attribute='class' defaultTheme={SiteMeta.theme}>
           <LayoutWrapper>{children}</LayoutWrapper>
         </ThemeProvider>

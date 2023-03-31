@@ -6,33 +6,32 @@ import rehypeSlug from 'rehype-slug'
 import rehypePrismPlus from 'rehype-prism-plus'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 
-
-export const Post =  defineDocumentType(() => ({
+export const Post = defineDocumentType(() => ({
   name: 'Blog',
   filePathPattern: 'posts/blog/**/*.mdx',
   contentType: 'mdx',
   fields: {
     title: {
       type: 'string',
-      required: true
+      required: true,
     },
     date: {
       type: 'date',
-      required: true
+      required: true,
     },
     slug: {
       type: 'string',
-      required: true
+      required: true,
     },
     tags: {
       type: 'list',
-      of: { type: "string" },
-      required: true
+      of: { type: 'string' },
+      required: true,
     },
     draft: {
       type: 'boolean',
-      require: false
-    }
+      require: false,
+    },
   },
   computedFields: {
     url: {
@@ -42,32 +41,32 @@ export const Post =  defineDocumentType(() => ({
   },
 }))
 
-export const Remark =  defineDocumentType(() => ({
+export const Remark = defineDocumentType(() => ({
   name: 'Remark',
   filePathPattern: 'posts/remark/**/*.mdx',
   contentType: 'mdx',
   fields: {
     title: {
       type: 'string',
-      required: true
+      required: true,
     },
     date: {
       type: 'date',
-      required: true
+      required: true,
     },
     slug: {
       type: 'string',
-      required: true
+      required: true,
     },
     tags: {
       type: 'list',
-      of: { type: "string" },
-      required: true
+      of: { type: 'string' },
+      required: true,
     },
     draft: {
       type: 'boolean',
-      require: false
-    }
+      require: false,
+    },
   },
   computedFields: {
     url: {
@@ -81,16 +80,11 @@ export default makeSource({
   contentDirPath: 'posts',
   documentTypes: [Post, Remark],
   mdx: {
-    remarkPlugins: [
-      remarkGfm,
-      remarkDirective,
-      remarkSideNote
-    ],
+    remarkPlugins: [remarkGfm, remarkDirective, remarkSideNote],
     rehypePlugins: [
       rehypeSlug,
       rehypeAutolinkHeadings,
-      [rehypePrismPlus, { ignoreMissing: true }]
+      [rehypePrismPlus, { ignoreMissing: true }],
     ],
-
-  }
+  },
 })

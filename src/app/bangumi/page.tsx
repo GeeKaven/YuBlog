@@ -1,13 +1,12 @@
-'use client'
+import Bangumi from '@/components/Bangumi'
+import { PageSEO } from '@/lib/utils/seo'
+import { Metadata } from 'next'
 
-import { PageSEO } from "@/components/SEO";
-import Bangumi from "@/components/Bangumi";
+export const metadata: Metadata = PageSEO('Bangumi - 番剧', '我的追番记录!!!')
 
 export default function Page() {
-
   return (
     <>
-      <PageSEO title={`Bangumi - 番剧`} description="我的追番记录!!!" />
       <Bangumi />
     </>
   )

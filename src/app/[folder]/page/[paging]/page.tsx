@@ -1,8 +1,11 @@
 import { getPostsByFolder, POSTS_PER_PAGE } from '@/lib/utils/post'
 import ListLayout from '@/layouts/ListLayout'
 import { POST_FOLDER, ARCHIVE_FOLDER, LIST_TITLE } from '@/lib/utils/post'
+import { Blog, Remark } from 'contentlayer/generated'
+import { PageSEO } from '@/lib/utils/seo'
+import SiteMeta from '@/data/siteMeta'
 
-export const dynamicParams = false;
+export const dynamicParams = false
 
 function getPageList(folder, pageNumber) {
   const posts = getPostsByFolder(folder)
@@ -26,9 +29,18 @@ function getPageList(folder, pageNumber) {
   }
 }
 
+export function generateMetadata({ params }) {
+  const { folder } = params
+
+  return PageSEO(
+    `${LIST_TITLE[folder]} - ${SiteMeta.author}`,
+    SiteMeta.description
+  )
+}
+
 export async function generateStaticParams() {
-  const paths = []
-  const archivesPosts = []
+  const paths: Array<FolderType> = []
+  const archivesPosts: Array<Blog | Remark> = []
 
   for (const folder of POST_FOLDER) {
     const totalPosts = getPostsByFolder(folder)

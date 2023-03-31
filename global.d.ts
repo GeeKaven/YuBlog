@@ -18,3 +18,9 @@ type PaginationType = {
   totalPages: number,
   path: string
 }
+
+type FolderType = {
+  folder: string,
+  slug?: string,
+  paging?: string,
+}

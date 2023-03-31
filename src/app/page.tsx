@@ -1,12 +1,14 @@
 import Hero from '@/components/Hero'
-import { PageSEO } from '@/components/SEO'
-import SiteMeta from '@/data/siteMeta'
-import HomePage from "./HomePage";
+import HomePage from './HomePage'
+
+import type { Metadata } from 'next'
+import { PageSEO } from '@/lib/utils/seo'
+
+export const metadata: Metadata = PageSEO('HOME', "GeeKaven's Blog")
 
 export default function Page() {
   return (
     <div>
-      <PageSEO title={SiteMeta.title} description={SiteMeta.description} />
       <Hero />
       <HomePage />
     </div>
