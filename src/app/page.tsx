@@ -8,9 +8,9 @@ export const metadata: Metadata = PageSEO('HOME', "GeeKaven's Blog")
 
 export default function Page() {
   return (
-    <div>
+    <>
       <Hero />
       <HomePage />
-    </div>
+    </>
   )
 }

@@ -16,17 +16,15 @@ const Layout = ({ children }: LayoutProps) => {
   const onToggleNav = () => setNavShow((status) => !status)
 
   return (
-    <>
+    <div className='flex flex-col min-h-full'>
       <MobileNav navShow={navShow} onToggleNav={onToggleNav} />
       <Header onToggleNav={onToggleNav} />
-      <div className='mx-auto max-w-3xl px-4 sm:px-6 mt-[70px]'>
-        <div className='flex flex-col justify-between h-screen'>
-          <main className='mb-auto'>{children}</main>
-          <Footer />
-          <BackToTop />
-        </div>
-      </div>
-    </>
+      <main className='flex-grow mx-auto w-3/4 px-4 sm:px-6 mt-[70px]'>
+        {children}
+      </main>
+      <Footer />
+      <BackToTop />
+    </div>
   )
 }
 

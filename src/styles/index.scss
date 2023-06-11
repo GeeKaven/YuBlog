@@ -24,6 +24,11 @@
   @apply bg-primary-500 #{!important};
 }
 
+html,
+body {
+  height: 100%;
+}
+
 body {
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
