@@ -2,7 +2,7 @@
 
 import '../styles/index.scss'
 import '../styles/highlighting.scss'
-import NextNProgress from 'nextjs-progressbar'
+import NextTopLoader from 'nextjs-toploader'
 import { ThemeProvider } from 'next-themes'
 import LayoutWrapper from '@/components/Layout'
 import SiteMeta from '@/data/siteMeta'
@@ -15,8 +15,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body>
-        {/* TODO: not work */}
-        {/* <NextNProgress options={{ showSpinner: false }} /> */}
+        <NextTopLoader showSpinner={false} color='#4f46e5' />
         <ThemeProvider attribute='class' defaultTheme={SiteMeta.theme}>
           <LayoutWrapper>{children}</LayoutWrapper>
         </ThemeProvider>
