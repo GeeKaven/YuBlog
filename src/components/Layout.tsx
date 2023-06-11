@@ -19,8 +19,8 @@ const Layout = ({ children }: LayoutProps) => {
     <div className='flex flex-col min-h-full'>
       <MobileNav navShow={navShow} onToggleNav={onToggleNav} />
       <Header onToggleNav={onToggleNav} />
-      <main className='flex-grow mx-auto w-3/4 px-4 sm:px-6 mt-[70px]'>
-        {children}
+      <main className='flex-grow w-full mt-[70px]'>
+        <div className='mx-auto max-w-3xl px-4 sm:px-6'>{children}</div>
       </main>
       <Footer />
       <BackToTop />
