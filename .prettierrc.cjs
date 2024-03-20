@@ -18,5 +18,9 @@ module.exports = {
       files: '*.astro',
       options: { parser: 'astro' },
     },
+    {
+      files: '*.ts',
+      options: { parser: 'typescript' },
+    },
   ],
 }

@@ -3,7 +3,7 @@ title: '分布式解决方案 -- Zookeeper 分布式锁原理实现'
 date: 2021-04-05 13:36:22
 slug: 'zookeeper-lock'
 tags: ['zookeeper', '分布式']
-type: Blog
+description: 'Zookeeper 是一种分布式应用程序协调服务，用于在分布式环境中提供一种简单的架构'
 ---
 
 Zookeeper 是一种分布式应用程序协调服务，用于在分布式环境中提供一种简单的架构和 API 来解决多服务协调和管理的问题。Zookeeper 使开发人员不必关系分布式应用中的一些底层细节，从而专注于应用程序的核心逻辑。

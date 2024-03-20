@@ -3,7 +3,7 @@ title: 'JMM 角度解析 volatile 关键字作用与基础原理'
 date: 2021-01-03 21:53:38
 slug: 'volatile-jmm'
 tags: ['Java', 'JMM']
-type: Blog
+description: '在 main 中开启一个线程，输出 thread start，'
 ---
 
 首先看下面一段代码：

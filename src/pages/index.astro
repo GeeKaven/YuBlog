@@ -1,8 +1,13 @@
 ---
-import Layout from '../layouts/Layout.astro'
+import Layout from '@/layouts/Layout.astro'
 import Hero from '@/components/Hero.astro'
+import { getCollection } from 'astro:content'
+import PostViewList from '@/components/PostViewList.astro'
+
+let posts = await getCollection('blog')
 ---
 
 <Layout title='Welcome to Astro.'>
   <Hero />
+  <PostViewList posts={posts.slice(0, 5)} heading='最近更新' />
 </Layout>

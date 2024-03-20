@@ -6,6 +6,20 @@
   scrollbar-color: theme('colors.primary.500') transparent;
 }
 
+::-webkit-scrollbar {
+  @apply w-1.5 h-1.5;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary-500 rounded;
+}
+
+@media (pointer: fine) {
+  ::-webkit-scrollbar {
+    @apply w-2 h-2;
+  }
+}
+
 html,
 body {
   height: 100%;
