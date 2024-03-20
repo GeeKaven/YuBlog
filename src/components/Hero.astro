@@ -1,0 +1,43 @@
+---
+import { Image } from 'astro:assets'
+import { Icon } from 'astro-icon/components'
+import SiteMeta from '@/siteMeta'
+---
+
+<div class='flex items-center my-12 sm:my-16'>
+  {
+    SiteMeta.avatar && (
+      <div class='relative'>
+        <Image
+          src={SiteMeta.avatar}
+          alt='avatar'
+          width={96}
+          height={96}
+          class='object-cover rounded-full shadow-lg'
+        />
+        <div class='absolute inset-0 ring-1 ring-inset rounded-full ring-black/10 dark:ring-white/10' />
+      </div>
+    )
+  }
+  <div class='flex flex-col justify-between ml-6'>
+    <h1
+      class='pb-2 text-3xl sm:text-4xl font-medium bg-gradient-to-br from-pink-400 to-sky-500 bg-clip-text text-transparent'
+    >
+      {SiteMeta.title}
+    </h1>
+    <span class='text-gray-500 dark:text-gray-400'>{SiteMeta.description}</span>
+    <div class='flex items-center gap-3 pt-2'>
+      {
+        SiteMeta.socials &&
+          SiteMeta.socials.map((social) => (
+            <a
+              href={social.link}
+              aria-label={`Read more about ${social.label}`}
+            >
+              <Icon name={social.icon} class='text-lg' />
+            </a>
+          ))
+      }
+    </div>
+  </div>
+</div>

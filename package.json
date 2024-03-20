@@ -1,6 +1,7 @@
 {
   "name": "code-self-blog",
   "version": "0.0.1",
+  "type": "module",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -12,10 +13,12 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.5.7",
-    "astro": "^4.5.1"
+    "astro": "^4.5.1",
+    "astro-icon": "^1.1.0"
   },
   "devDependencies": {
     "@astrojs/tailwind": "^5.1.0",
+    "@iconify-json/iconoir": "^1.1.42",
     "@typescript-eslint/parser": "^7.2.0",
     "eslint": "^8.57.0",
     "eslint-plugin-astro": "^0.31.4",
