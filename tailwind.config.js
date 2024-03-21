@@ -2,17 +2,35 @@
 const colors = require('tailwindcss/colors')
 
 module.exports = {
-  content: ['./src/app/**/*.tsx', './src/components/**/*.tsx', './src/pages/**/*.tsx', './src/layouts/**/*.tsx'],
-  darkMode: 'class',
+  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+  darkMode: 'selector',
   theme: {
     extend: {
       fontFamily: {
-        sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI',
-        'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue',
-        'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol'],
-        mono: ['JetBrains Mono', 'Monaco', 'Menlo', 'Consolas',
-        'Courier New', 'Courier', 'monospace']
+        sans: [
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'Segoe UI',
+          'PingFang SC',
+          'Hiragino Sans GB',
+          'Microsoft YaHei',
+          'Helvetica Neue',
+          'Helvetica',
+          'Arial',
+          'sans-serif',
+          'Apple Color Emoji',
+          'Segoe UI Emoji',
+          'Segoe UI Symbol',
+        ],
+        mono: [
+          'JetBrains Mono',
+          'Monaco',
+          'Menlo',
+          'Consolas',
+          'Courier New',
+          'Courier',
+          'monospace',
+        ],
       },
       colors: {
         primary: colors.indigo,
@@ -51,9 +69,9 @@ module.exports = {
               color: theme('colors.gray.900'),
             },
             pre: {
-              marginLeft: '-2rem',
-              marginRight: '-2rem',
-              backgroundColor: theme('colors.slate.100'),
+              marginLeft: '-1rem',
+              marginRight: '-1rem',
+              backgroundColor: theme('colors.gray.300'),
             },
             code: {
               color: theme('colors.pink.500'),
@@ -86,17 +104,17 @@ module.exports = {
             'ul li::marker': {
               color: theme('colors.primary.500'),
             },
-            strong: { 
+            strong: {
               backgroundColor: 'inherit',
-              color: theme('colors.gray.600') 
+              color: theme('colors.gray.600'),
             },
             blockquote: {
               position: 'relative',
-              color: theme('colors.slate.500'),
+              color: theme('colors.slate.600'),
               border: 'none',
               'p:first-child::before, p:last-child::after': {
-                content: 'none'
-              }
+                content: 'none',
+              },
             },
             'blockquote::before': {
               content: "'“'",
@@ -127,8 +145,8 @@ module.exports = {
             blockquote: {
               paddingLeft: '2rem',
               paddingRight: '2rem',
-            }
-          }
+            },
+          },
         },
         dark: {
           css: {
@@ -174,8 +192,8 @@ module.exports = {
             'ul li::marker': {
               color: theme('colors.primary.500'),
             },
-            strong: { 
-              color: theme('colors.gray.100') 
+            strong: {
+              color: theme('colors.gray.100'),
             },
             thead: {
               borderBottomColor: theme('colors.gray.700'),
@@ -189,7 +207,7 @@ module.exports = {
               },
             },
             blockquote: {
-              color: theme('colors.slate.400'),
+              color: theme('colors.slate.300'),
             },
           },
         },

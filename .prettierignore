@@ -2,6 +2,7 @@
 **/.svn
 **/.hg
 **/node_modules
-index.html
 pnpm-lock.yaml
-.contentlayer
+dist
+.github
+.changeset

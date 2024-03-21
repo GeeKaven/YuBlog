@@ -1,0 +1,22 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import PostView from './PostView.astro'
+
+interface Props {
+  posts: CollectionEntry<'blog'>[]
+  heading?: string
+}
+
+const { posts, heading } = Astro.props
+---
+
+{
+  heading && (
+    <div>
+      <p class='text-4xl mt-14 mb-10'>{heading}</p>
+    </div>
+  )
+}
+<div class='flex flex-col gap-12'>
+  {posts.map((post) => <PostView post={post} />)}
+</div>

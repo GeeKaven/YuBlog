@@ -1,10 +1,10 @@
-import SiteMeta from '@/data/siteMeta'
+import SiteMeta from '@/siteMeta'
 import classNames from 'classnames'
 import { useAtom } from 'jotai'
 import useSWR from 'swr'
 import { BgmStateAtom } from './BgmState'
 
-const fetcher = (url) => fetch(url).then((res) => res.json())
+const fetcher = (url: string) => fetch(url).then((res) => res.json())
 const bangumiUrl = SiteMeta.bangumi.apiUrl
 
 const types = {
@@ -18,8 +18,8 @@ const BgmTab = () => {
 
   const { data, error, isLoading} = useSWR(`${bangumiUrl}/bangumi_total`, fetcher)
 
-  if (error) return <div>failed to load</div>
-  if (isLoading) return <div>loading...</div>
+  if (error) return <div className='flex gap-2 text-lg my-6'>failed to load</div>
+  if (isLoading) return <div className='flex gap-2 text-lg my-6'>    </div>
 
   return (
     <div className='flex gap-2 text-lg my-6'>
@@ -29,9 +29,9 @@ const BgmTab = () => {
           <span
             key={key}
             onClick={() => setBgmState({ type: key })}
-            className={classNames('px-2 py-[2px] rounded-md cursor-pointer', { 'text-white dark:bg-primary-500 bg-primary-400': key === type })}
+            className={classNames('px-2 py-[2px] rounded-md cursor-pointer', { 'text-white dark:bg-primary-600 bg-primary-500': key === type })}
           >
-            {types[key]}({value})
+            {types[key as keyof typeof types]}({value})
           </span>
         )
       })}

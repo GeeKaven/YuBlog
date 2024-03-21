@@ -1,0 +1,38 @@
+---
+import { Image } from 'astro:assets'
+import ThemeSwitch from './ThemeSwitch.astro'
+import SiteMeta from '@/siteMeta'
+---
+
+<header
+  class='w-full h-[70px] sm:border-b border-white/50 dark:border-gray-900/50 backdrop-blur-md supports-backdrop-blur:bg-white/95 fixed top-0 z-40 py-[10px] dark:bg-gray-900/75 bg-white'
+>
+  <div class='flex items-center justify-between mx-auto max-w-4xl px-4 md:px-0'>
+    <a href='/' aria-label={SiteMeta.headerTitle}>
+      <div class='flex items-center justify-between mr-3'>
+        <Image
+          src='/logo.svg'
+          alt='logo'
+          width={48}
+          height={48}
+          class='sm:inline-block mr-4 cursor-pointer dark:invert'
+        />
+      </div>
+    </a>
+    <div class='flex items-center text-base leading-5'>
+      <nav class='hidden sm:block'>
+        <a href='/' class='hea'>首页</a>
+        <a href='/archives'>归档</a>
+        <a href='/bangumi'>番剧</a>
+        <a href='/about'>关于</a>
+      </nav>
+      <ThemeSwitch />
+    </div>
+  </div>
+</header>
+
+<style>
+  nav a {
+    @apply font-medium text-lg mx-1 py-2 px-4 rounded-lg leading-loose transition hover:bg-slate-200/50 dark:hover:bg-zinc-800/50;
+  }
+</style>

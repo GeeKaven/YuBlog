@@ -1,11 +1,9 @@
-import SiteMeta from '@/data/siteMeta'
+import SiteMeta from '@/siteMeta'
 import classNames from 'classnames'
 import { useAtom } from 'jotai'
-import Image from 'next/image'
-import Link from 'next/link'
 import useSWRInfinite from 'swr/infinite'
 import { BgmStateAtom } from './BgmState'
-import { Fetcher } from 'swr'
+import type { Fetcher } from 'swr'
 
 const bangumiUrl = SiteMeta.bangumi.apiUrl
 const PAGE_SIZE = 12
@@ -57,11 +55,10 @@ const BgmList = () => {
   if (error) return <div>failed to load</div>
   if (isLoading)
     return (
-      <Image
+      <img
         alt='Loading...'
         src='/images/loading.gif'
         className='my-auto mx-0'
-        priority={true}
         width={800}
         height={400}
       />
@@ -87,7 +84,7 @@ const BgmList = () => {
           const percentage = (ep / totalEp) * 100
           const subjectUrl = `https://bgm.tv/subject/${item.subject_id}`
           return (
-            <Link
+            <a
               key={item.subject_id}
               href={subjectUrl}
               target='_blank'
@@ -97,11 +94,12 @@ const BgmList = () => {
             >
               <div className='h-full overflow-hidden border-2 rounded-md dark:border-gray-800 border-gray-100 hover:border-primary-500 dark:hover:border-primary-500'>
                 <div className='h-80 relative'>
-                  <Image
+                  <img
                     src={item.images.large}
                     alt={item.name}
-                    fill
                     style={{ objectFit: 'cover' }}
+                    loading="lazy"
+                    decoding='async'
                     sizes='33vw'
                   />
                 </div>
@@ -123,7 +121,7 @@ const BgmList = () => {
                   </div>
                 </div>
               </div>
-            </Link>
+            </a>
           )
         })}
       </div>
