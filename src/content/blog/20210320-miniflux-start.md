@@ -93,7 +93,7 @@ rss.tawawa.moe {
 ```
 
 重启后通过绑定服务器 ip 的域名即可访问 `rss.tawawa.moe`
-![miniflux home](https://cdn.jsdelivr.net/gh/GeeKaven/BlogAssets@v1.0.1/img/miniflux-start.png)
+![miniflux home](https://img.tawawa.moe/miniflux-start.png)
 
 ## 参考
 
