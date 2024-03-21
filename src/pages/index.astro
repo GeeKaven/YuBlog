@@ -10,4 +10,13 @@ let posts = await getCollection('blog')
 <Layout title='Welcome to Astro.'>
   <Hero />
   <PostViewList posts={posts.slice(0, 5)} heading='最近更新' />
+  <div
+    class='flex justify-center md:justify-end text-base font-medium leading-6 py-6'
+  >
+    <a
+      href={`/blog`}
+      class='text-lg text-primary-700 hover:text-primary-500 dark:text-primary-400 dark:hover:text-primary-600'
+      >查看全部</a
+    >
+  </div>
 </Layout>

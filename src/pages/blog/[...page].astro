@@ -1,0 +1,20 @@
+---
+import type { GetStaticPaths } from 'astro'
+import { getCollection } from 'astro:content'
+import Layout from '@/layouts/Layout.astro'
+import PostViewList from '@/components/PostViewList.astro'
+import Pagination from '@/components/Pagination.astro'
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const allPosts = await getCollection('blog')
+
+  return paginate(allPosts, { pageSize: 5, params: { page: 'paging' } })
+}) satisfies GetStaticPaths
+
+const { page } = Astro.props
+---
+
+<Layout title='Blog'>
+  <PostViewList posts={page.data} heading='全部文章' />
+  <Pagination page={page} />
+</Layout>

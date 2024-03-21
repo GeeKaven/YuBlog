@@ -1,0 +1,46 @@
+---
+import type { Page } from 'astro'
+
+interface Props {
+  page: Page
+}
+
+const { page } = Astro.props
+
+const prevPage = page.url.prev !== undefined
+const nextPage = page.url.next !== undefined
+
+---
+
+<div class='mt-16 mb-6'>
+  <nav class='flex justify-between'>
+    {
+      !prevPage && (
+        <button class='cursor-auto disabled:opacity-50' disabled={!prevPage}>
+          上一页
+        </button>
+      )
+    }
+    {
+      prevPage && (
+        <a
+          href={page.url.prev}
+          }
+        >
+          <button>上一页</button>
+        </a>
+      )
+    }
+    <span>
+      {page.currentPage} / {page.lastPage}
+    </span>
+    {
+      !nextPage && (
+        <button class='cursor-auto disabled:opacity-50' disabled={!nextPage}>
+          下一页
+        </button>
+      )
+    }
+    {nextPage && <a href={page.url.next}>下一页</a>}
+  </nav>
+</div>
