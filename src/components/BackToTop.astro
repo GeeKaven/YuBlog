@@ -1,0 +1,85 @@
+---
+import { Icon } from 'astro-icon/components'
+---
+
+<button
+  type='button'
+  id='backToTop'
+  class='fixed right-8 sm:right-14 rounded-full
+ p-3 bg-primary-500/80 hover:bg-primary-500 text-gray-100 cursor-pointer z-10'
+>
+  <Icon name='iconoir:arrow-up' size={20} />
+</button>
+
+<script>
+  const backToTop = document.getElementById('backToTop')
+
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  })
+
+  window.addEventListener('scroll', () => {
+    console.log(window.scrollY)
+    if (window.scrollY > 100) {
+      backToTop.classList.remove('slideout')
+      backToTop.classList.add('slidein')
+    } else {
+      backToTop.classList.add('slideout')
+      backToTop.classList.remove('slidein')
+    }
+  })
+</script>
+
+<style>
+  .slidein {
+    animation-duration: 0.5s;
+    animation-name: slidein;
+    @apply bottom-8 sm:bottom-14;
+  }
+
+  @keyframes slidein {
+    from {
+      @apply bottom-0 opacity-0;
+    }
+    to {
+      @apply bottom-8 opacity-100 visible;
+    }
+  }
+
+  @media (min-width: 640px) {
+    @keyframes slidein {
+      from {
+        @apply bottom-0 opacity-0;
+      }
+      to {
+        @apply bottom-14 opacity-100 visible;
+      }
+    }
+  }
+
+  .slideout {
+    animation-duration: 0.5s;
+    animation-name: slideout;
+    @apply visible;
+  }
+
+  @keyframes slideout {
+    from {
+      @apply bottom-8 opacity-100;
+    }
+    to {
+      @apply bottom-0 opacity-0 hidden;
+    }
+  }
+
+  @media (min-width: 640px) {
+    @keyframes slideout {
+      from {
+        @apply bottom-14 opacity-100;
+      }
+      to {
+        @apply bottom-0 opacity-0 hidden;
+      }
+    }
+  }
+</style>

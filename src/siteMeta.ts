@@ -20,7 +20,11 @@ export default {
       icon: 'iconoir:twitter',
       link: 'https://twitter.com/tawawa_moe',
     },
-    { label: 'Email', icon: 'iconoir:mail', link: 'mailto:i@tawawa.moe' },
+    {
+      label: 'Email',
+      icon: 'iconoir:mail',
+      link: 'mailto:i@tawawa.moe',
+    },
   ],
   bangumi: {
     apiUrl: 'https://bangumi-tv.vercel.app',

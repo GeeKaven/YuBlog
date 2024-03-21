@@ -3,6 +3,7 @@ import '@/assets/styles/tailwind.scss'
 import Header from '@/components/Header.astro'
 import Footer from '@/components/Footer.astro'
 import BaseHead from '@/components/BaseHead.astro'
+import BackToTop from '@/components/BackToTop.astro'
 
 interface Props {
   title: string
@@ -23,6 +24,7 @@ const { title } = Astro.props
         </div>
       </main>
       <Footer />
+      <BackToTop />
     </div>
   </body>
 </html>
